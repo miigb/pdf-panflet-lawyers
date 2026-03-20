@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>LETRAPERFEIÇOADA — Sidebar</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page {
+    width: 210mm; min-height: 297mm; margin: 0 auto; overflow: hidden;
+    page-break-after: always; display: grid;
+    grid-template-columns: 200px 1fr;
+  }
+
+  /* ═══ LEFT SIDEBAR ═══ */
+  .sidebar {
+    background: #0d1c2d;
+    color: white;
+    padding: 28px 22px;
+    display: flex; flex-direction: column;
+  }
+  .logo-group { display: flex; align-items: center; gap: 8px; margin-bottom: 32px; }
+  .ds-logo-small { height: 24px; width: 24px; border-radius: 50%; object-fit: cover; }
+  .wordmark-block { display: flex; flex-direction: column; line-height: 1.15; }
+  .wordmark { font-size: 12px; letter-spacing: -0.02em; color: white; }
+  .wordmark b { font-weight: 900; }
+  .wordmark span { font-weight: 300; }
+  .wordmark-sub { font-size: 6px; font-weight: 600; color: rgba(255,255,255,0.35); letter-spacing: 0.04em; }
+
+  /* Sidebar stats */
+  .sidebar-stat { margin-bottom: 20px; }
+  .sidebar-stat .val { font-size: 32px; font-weight: 900; color: #e84393; letter-spacing: -0.03em; }
+  .sidebar-stat .lbl { font-size: 7px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.35); margin-top: 2px; }
+  .sidebar-divider { height: 1px; background: rgba(255,255,255,0.08); margin: 4px 0 20px; }
+
+  /* Sidebar features */
+  .sidebar-features { margin-bottom: auto; }
+  .sf-item { margin-bottom: 16px; }
+  .sf-item h5 { font-size: 10px; font-weight: 800; color: white; margin-bottom: 2px; }
+  .sf-item p { font-size: 8px; color: rgba(255,255,255,0.35); line-height: 1.5; }
+
+  /* Sidebar contact */
+  .sidebar-contact { margin-top: auto; }
+  .sidebar-contact h4 { font-size: 14px; font-weight: 900; color: white; margin-bottom: 2px; }
+  .sidebar-contact .role { font-size: 7px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #e84393; }
+  .sidebar-contact .details { font-size: 8px; color: rgba(255,255,255,0.4); margin-top: 8px; line-height: 1.6; }
+  .sidebar-cta {
+    display: block; margin-top: 12px;
+    background: #e84393; color: white; border: none;
+    padding: 10px 18px; border-radius: 8px;
+    font-size: 9px; font-weight: 800; cursor: pointer;
+    text-decoration: none; text-align: center;
+  }
+
+  /* ═══ MAIN CONTENT ═══ */
+  .main {
+    background: #fafafa;
+    display: flex; flex-direction: column;
+  }
+
+  /* Main header */
+  .main-header {
+    padding: 22px 32px;
+    border-bottom: 1px solid #eee;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .main-header .tag {
+    font-size: 7px; font-weight: 800; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #BA2979;
+    background: rgba(186,41,121,0.06); padding: 4px 10px; border-radius: 3px;
+  }
+  .main-header .site { font-size: 9px; font-weight: 600; color: #999; }
+
+  /* Hero with image */
+  .main-hero {
+    position: relative; height: 220px; overflow: hidden;
+  }
+  .main-hero img { width: 100%; height: 100%; object-fit: cover; }
+  .main-hero .overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 60%);
+  }
+  .main-hero .hero-content {
+    position: absolute; bottom: 24px; left: 32px; right: 32px;
+  }
+  .main-hero h1 {
+    font-size: 32px; font-weight: 900; line-height: 1.05;
+    letter-spacing: -0.04em; color: white; margin-bottom: 8px;
+  }
+  .main-hero h1 .pink { color: #e84393; }
+  .main-hero .desc {
+    font-size: 11px; font-weight: 400; color: rgba(255,255,255,0.7);
+    line-height: 1.6; max-width: 380px;
+  }
+
+  /* Process steps */
+  .process-strip {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    border-bottom: 1px solid #eee;
+  }
+  .process-item {
+    padding: 18px 20px;
+    border-right: 1px solid #eee;
+  }
+  .process-item:last-child { border-right: none; }
+  .process-item .num {
+    font-size: 24px; font-weight: 900; color: rgba(186,41,121,0.15); margin-bottom: 6px;
+  }
+  .process-item h4 { font-size: 11px; font-weight: 800; color: #0d0d0d; margin-bottom: 3px; }
+  .process-item p { font-size: 8.5px; color: #888; line-height: 1.5; }
+
+  /* Benefits grid */
+  .benefits-section {
+    padding: 24px 32px;
+    flex: 1;
+  }
+  .benefits-title {
+    font-size: 16px; font-weight: 900; letter-spacing: -0.03em;
+    color: #0d0d0d; margin-bottom: 4px;
+  }
+  .benefits-accent { width: 28px; height: 2.5px; background: #BA2979; border-radius: 2px; margin-bottom: 16px; }
+  .benefits-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+  }
+  .benefit-card {
+    padding: 14px 16px;
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 10px;
+  }
+  .benefit-card h5 { font-size: 10px; font-weight: 800; color: #0d0d0d; margin-bottom: 3px; }
+  .benefit-card p { font-size: 8.5px; color: #888; line-height: 1.45; }
+  .benefit-card.highlight {
+    background: #BA2979; border-color: #BA2979;
+  }
+  .benefit-card.highlight h5 { color: white; }
+  .benefit-card.highlight p { color: rgba(255,255,255,0.7); }
+
+  /* Quote */
+  .quote-section {
+    padding: 20px 32px;
+    border-top: 1px solid #eee;
+    display: flex; gap: 16px; align-items: center;
+  }
+  .quote-section .mark { font-size: 36px; font-weight: 900; color: #BA2979; opacity: 0.3; line-height: 1; flex-shrink: 0; }
+  .quote-section blockquote {
+    font-size: 10.5px; font-style: italic; color: #666; line-height: 1.55; flex: 1;
+  }
+  .quote-section cite {
+    font-style: normal; font-size: 7.5px; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 0.1em; color: #BA2979; flex-shrink: 0;
+  }
+
+  /* Banks */
+  .banks-footer {
+    padding: 14px 32px;
+    border-top: 1px solid #eee;
+    display: flex; justify-content: space-between; align-items: center;
+    margin-top: auto;
+  }
+  .banks-logos { display: flex; gap: 8px; align-items: center; }
+  .banks-logos img { height: 18px; }
+  .footer-text { font-size: 6.5px; color: #999; }
+
+  @media print { body { background: white; } .page { box-shadow: none; margin: 0; } }
+  @media screen { body { background: #e0e0e0; padding: 40px 0; } .page { box-shadow: 0 8px 40px rgba(0,0,0,0.15); margin-bottom: 40px; } }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="logo-group">
+      <img src="public/ds-credito-logo.png" alt="DS Crédito" class="ds-logo-small"/>
+      <div class="wordmark-block">
+        <div class="wordmark"><b>LETRA</b><span>PERFEIÇOADA</span></div>
+        <div class="wordmark-sub">Agente DS Crédito</div>
+      </div>
+    </div>
+
+    <div class="sidebar-stat"><div class="val">92%</div><div class="lbl">Taxa de Aprovação</div></div>
+    <div class="sidebar-stat"><div class="val">5 dias</div><div class="lbl">Tempo Médio</div></div>
+    <div class="sidebar-stat"><div class="val">Maioria</div><div class="lbl">Bancos Parceiros</div></div>
+    <div class="sidebar-divider"></div>
+
+    <div class="sidebar-features">
+      <div class="sf-item"><h5>Banco de Portugal</h5><p>Conformidade regulatória total</p></div>
+      <div class="sf-item"><h5>Expertise Jurídica</h5><p>Linguagem e tempos legais</p></div>
+      <div class="sf-item"><h5>Sigilo Absoluto</h5><p>Relação advogado-cliente protegida</p></div>
+      <div class="sf-item"><h5>Articulação Direta</h5><p>Comunicação com o escritório</p></div>
+    </div>
+
+    <div class="sidebar-contact">
+      <h4>Paulo Brito</h4>
+      <div class="role">Agente · Especialista Advogados</div>
+      <div class="details">infosuporteds@gmail.com<br/>meuintermediario.com</div>
+      <a href="https://meuintermediario.com" class="sidebar-cta">Agendar Reunião →</a>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+    <div class="main-header">
+      <div class="tag">Proposta de Parceria · Advogados</div>
+      <div class="site">meuintermediario.com</div>
+    </div>
+
+    <div class="main-hero">
+      <img src="screen copy 2.png" alt="Reunião profissional"/>
+      <div class="overlay"></div>
+      <div class="hero-content">
+        <h1>O Seu Parceiro<br/>Financeiro de <span class="pink">Confiança.</span></h1>
+        <div class="desc">Crédito especializado para os clientes do seu escritório. Confidencialidade total, articulação direta.</div>
+      </div>
+    </div>
+
+    <div class="process-strip">
+      <div class="process-item">
+        <div class="num">01</div>
+        <h4>Referenciação</h4>
+        <p>Encaminhe o contacto — iniciamos com discrição</p>
+      </div>
+      <div class="process-item">
+        <div class="num">02</div>
+        <h4>Análise 24h</h4>
+        <p>Viabilidade financeira rápida e precisa</p>
+      </div>
+      <div class="process-item">
+        <div class="num">03</div>
+        <h4>Melhores Condições</h4>
+        <p>Comparamos ofertas de múltiplos bancos</p>
+      </div>
+    </div>
+
+    <div class="benefits-section">
+      <div class="benefits-title">Vantagens para o Seu Escritório</div>
+      <div class="benefits-accent"></div>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <h5>Processos Ágeis</h5>
+          <p>Financiamento que não atrasa escrituras nem negociações</p>
+        </div>
+        <div class="benefit-card highlight">
+          <h5>Comissão de Referência</h5>
+          <p>Compensação por cada processo concretizado com sucesso</p>
+        </div>
+        <div class="benefit-card">
+          <h5>Solução Integrada</h5>
+          <p>Clientes melhor servidos com orientação financeira</p>
+        </div>
+        <div class="benefit-card">
+          <h5>Zero Conflitos</h5>
+          <p>Sem conflito de interesses com a atividade jurídica</p>
+        </div>
+        <div class="benefit-card">
+          <h5>Parceiro Discreto</h5>
+          <p>Alinhado com a deontologia profissional</p>
+        </div>
+        <div class="benefit-card">
+          <h5>Reporte Regular</h5>
+          <p>Feedback transparente sobre cada processo</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="quote-section">
+      <div class="mark">"</div>
+      <blockquote>A parceria com a Letraperfeiçoada acelerou significativamente os nossos processos imobiliários. Os clientes ficam satisfeitos.</blockquote>
+      <cite>— Escritório Parceiro</cite>
+    </div>
+
+    <div class="banks-footer">
+      <div class="banks-logos">
+        <img src="public/banks/cgd.png" alt="CGD"/>
+        <img src="public/banks/santander.png" alt="Santander"/>
+        <img src="public/banks/bpi.png" alt="BPI"/>
+        <img src="public/banks/bankinter.png" alt="Bankinter"/>
+        <img src="public/banks/novobanco.png" alt="NB"/>
+        <img src="public/banks/bni.png" alt="BNI"/>
+        <img src="public/banks/uci.png" alt="UCI"/>
+        <img src="public/banks/abanca.png" alt="Abanca"/>
+      </div>
+      <div class="footer-text"><b style="font-weight:800;">LETRA</b><span style="font-weight:300;">PERFEIÇOADA</span> · Banco de Portugal · © 2026</div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
