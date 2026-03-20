@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html class="light" lang="pt-PT"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-highest": "#d4e4fa",
+              "primary-fixed-dim": "#ffb0d0",
+              "tertiary": "#415062",
+              "surface-tint": "#af1e70",
+              "primary": "#9a0160",
+              "on-secondary": "#ffffff",
+              "inverse-primary": "#ffb0d0",
+              "error": "#ba1a1a",
+              "tertiary-fixed-dim": "#b9c8de",
+              "surface-container-lowest": "#ffffff",
+              "on-primary-fixed": "#3d0023",
+              "surface-container-high": "#dbe9ff",
+              "secondary": "#63597d",
+              "on-surface-variant": "#564149",
+              "surface-variant": "#d4e4fa",
+              "on-background": "#0d1c2d",
+              "on-secondary-container": "#62587c",
+              "error-container": "#ffdad6",
+              "surface-container-low": "#eef4ff",
+              "on-primary-container": "#ffdde8",
+              "secondary-container": "#ded1fb",
+              "on-surface": "#0d1c2d",
+              "tertiary-container": "#59687b",
+              "surface-container": "#e5efff",
+              "background": "#f8f9ff",
+              "secondary-fixed-dim": "#cdc0ea",
+              "outline": "#8a7079",
+              "on-secondary-fixed": "#1f1636",
+              "on-secondary-fixed-variant": "#4b4164",
+              "inverse-on-surface": "#e9f1ff",
+              "primary-fixed": "#ffd8e5",
+              "on-error": "#ffffff",
+              "on-primary-fixed-variant": "#8c0057",
+              "inverse-surface": "#233143",
+              "on-tertiary-fixed": "#0d1c2d",
+              "surface-bright": "#f8f9ff",
+              "surface": "#f8f9ff",
+              "on-tertiary-container": "#d8e7fe",
+              "on-tertiary": "#ffffff",
+              "surface-dim": "#ccdbf2",
+              "on-tertiary-fixed-variant": "#39485a",
+              "on-error-container": "#93000a",
+              "secondary-fixed": "#e9ddff",
+              "on-primary": "#ffffff",
+              "outline-variant": "#ddbfc9",
+              "tertiary-fixed": "#d4e4fa",
+              "primary-container": "#ba2979"
+            },
+            fontFamily: {
+              "headline": ["Inter", "sans-serif"],
+              "body": ["Inter", "sans-serif"],
+              "label": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: #f1f5f9; color: #0d1c2d; }
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.5rem;
+        }
+        .widget-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .widget-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-slate-50">
+<header class="bg-white border-b border-slate-200 sticky top-0 z-50">
+<div class="max-w-[1600px] mx-auto px-6 py-4 flex justify-between items-center">
+<div class="flex items-center gap-4">
+<span class="bg-primary text-white p-2 rounded-lg material-symbols-outlined">dashboard</span>
+<span class="text-xl font-black tracking-tight text-[#160D2D] uppercase">CREDIT INTERMEDIARY SERVICES</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex gap-6 text-sm font-semibold text-slate-500">
+<a class="text-primary border-b-2 border-primary" href="#">Resumo Executivo</a>
+<a class="hover:text-primary transition-colors" href="#">Operações</a>
+<a class="hover:text-primary transition-colors" href="#">Compliance</a>
+</div>
+<button class="bg-primary text-white px-5 py-2 rounded-lg font-bold text-sm shadow-sm hover:opacity-90 transition-opacity">
+                Agendar Consulta
+            </button>
+</div>
+</div>
+</header>
+<main class="max-w-[1600px] mx-auto p-6">
+<div class="dashboard-grid">
+<div class="col-span-12 lg:col-span-8 widget-card bg-primary text-white">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+<div>
+<span class="text-xs font-bold tracking-[0.3em] uppercase opacity-80 mb-2 block">Executive Summary Vol. 01</span>
+<h1 class="text-4xl md:text-5xl font-black tracking-tight leading-tight">
+                        Crédito Especializado
+                    </h1>
+<p class="mt-4 text-white/80 max-w-xl font-light leading-relaxed">
+                        Desbloqueando o potencial financeiro do seu negócio através de soluções de intermediação estratégica.
+                    </p>
+</div>
+<div class="w-full md:w-48 aspect-video rounded-lg overflow-hidden border border-white/20">
+<img alt="Arquit" class="w-full h-full object-cover opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJOdRAYHkvpL6h-ypKZcnMPvDTKPtfAmi7sGtPpmfRZZSdQ_Fy3Y42iiH_Q9tTR19r8LoAchL5gZiOLrbZIyISBEh5bxITT9uZvjZpnKwk9qY1k81_En5RZQoteabo508baql2Fqsqy8icwhgRRBaPMxCiyqKUALHB5x1KHkY3k5K4t6WVohTQaDlM7g0NQpXU9u-lwc3qy5cSIvE2N5IDTPUwKghSW-rhj3xc34tmxIOp7vnLoYxbioGwm6Xp_TRzNclw5CrDWhqi"/>
+</div>
+</div>
+</div>
+<div class="col-span-12 md:col-span-6 lg:col-span-4 widget-card justify-center border-l-8 border-primary">
+<span class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Ciclo de Aprovação</span>
+<div class="flex items-baseline gap-2">
+<span class="text-6xl font-black text-primary tracking-tighter">15</span>
+<span class="text-xl font-bold text-on-surface tracking-tight">dias úteis</span>
+</div>
+<p class="text-sm text-slate-500 mt-2">Redução média face ao ciclo de aprovação tradicional.</p>
+</div>
+<div class="col-span-12 lg:col-span-3 widget-card">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg" data-icon="analytics">analytics</span>
+<h3 class="font-bold text-lg">Diagnóstico Digital</h3>
+</div>
+<p class="text-sm text-slate-600 leading-relaxed mb-4">Redução do tempo de triagem inicial em 70% com algoritmos proprietários.</p>
+<div class="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between">
+<span class="text-[10px] font-bold text-slate-400 uppercase">Status: Ativo</span>
+<span class="text-primary font-bold">01</span>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-3 widget-card">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg" data-icon="account_tree">account_tree</span>
+<h3 class="font-bold text-lg">Estruturação Ágil</h3>
+</div>
+<p class="text-sm text-slate-600 leading-relaxed mb-4">Montagem de dossier técnica irrepreensível para aprovação imediata.</p>
+<div class="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between">
+<span class="text-[10px] font-bold text-slate-400 uppercase">Status: Otimizado</span>
+<span class="text-primary font-bold">02</span>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-3 widget-card">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg" data-icon="speed">speed</span>
+<h3 class="font-bold text-lg">Execução Veloz</h3>
+</div>
+<p class="text-sm text-slate-600 leading-relaxed mb-4">Monitorização proativa em cada etapa junto das entidades bancárias.</p>
+<div class="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between">
+<span class="text-[10px] font-bold text-slate-400 uppercase">Status: Real-time</span>
+<span class="text-primary font-bold">03</span>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-3 widget-card bg-slate-900 text-white">
+<div class="flex justify-between items-start mb-4">
+<span class="text-xs font-bold text-primary-fixed-dim uppercase tracking-tighter">Market Outlook 2024</span>
+<span class="material-symbols-outlined text-sm">trending_up</span>
+</div>
+<p class="text-sm font-light text-slate-300">Análise sobre novas dinâmicas de capital de giro no mercado europeu.</p>
+<div class="mt-6 h-12 w-full bg-slate-800 rounded flex items-center justify-center overflow-hidden">
+<img alt="Data" class="w-full h-full object-cover opacity-40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFh5xulYfUqYgQK5yoQwtiWaRTJJbF1FalQ8CRS3Jq4zceeCNtijLnZ8OglNJ9cc7RA2sQiz4L9_a1MwXPd6k9j-BAM0IqUUeoPkhHP7FipupUCPQk1Fl9W8sr_BSEeRQNooyan1DmaoZWeaoOtXdCSR8WRVDF9jD18e29RPvGxRe9WR5DTqECOTwlIuaney-ziCdKoPI4K1oSDr4-GaC3gDj8J8LIxNTSTITGAdEx1YbF12zNrodBwW2adX34s7XvMrkWmibjLFw8"/>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="widget-card">
+<div class="flex gap-4 items-start">
+<span class="material-symbols-outlined text-primary" data-icon="verified_user">verified_user</span>
+<div>
+<h4 class="font-bold text-on-surface">Credibilidade Institucional</h4>
+<p class="text-xs text-slate-500 mt-1">Acesso a linhas exclusivas não disponíveis no retalho comum.</p>
+</div>
+</div>
+</div>
+<div class="widget-card">
+<div class="flex gap-4 items-start">
+<span class="material-symbols-outlined text-primary" data-icon="payments">payments</span>
+<div>
+<h4 class="font-bold text-on-surface">Otimização de Custos</h4>
+<p class="text-xs text-slate-500 mt-1">Negociação agressiva de taxas através de volume e expertise.</p>
+</div>
+</div>
+</div>
+<div class="widget-card">
+<div class="flex gap-4 items-start">
+<span class="material-symbols-outlined text-primary" data-icon="security">security</span>
+<div>
+<h4 class="font-bold text-on-surface">Segurança e Compliance</h4>
+<p class="text-xs text-slate-500 mt-1">Processos auditados em conformidade com o Banco de Portugal.</p>
+</div>
+</div>
+</div>
+<div class="widget-card">
+<div class="flex gap-4 items-start">
+<span class="material-symbols-outlined text-primary" data-icon="trending_up">trending_up</span>
+<div>
+<h4 class="font-bold text-on-surface">Escalabilidade</h4>
+<p class="text-xs text-slate-500 mt-1">Financiamento que acompanha o seu crescimento orgânico.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-4 widget-card bg-surface-container-low overflow-hidden relative">
+<div class="flex items-center gap-4 mb-6 relative z-10">
+<div class="w-16 h-16 rounded-full overflow-hidden border-2 border-primary">
+<img alt="Miguel Brito" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAktwdbr2WgYzBygM22vuxGGirf0_2hypQEf04KTLX24o-0u0-oBNARJ8KNu7TQ_igRiBrGWb9U1E0XE2hlWXh3L1D_Ykaivl7FVHC_oyrABx4Olf2d3A0eI7u_CSnYvB3Xf6KKbpt-fU14PWlEclq1e36gkoTKtelz8Of-K66FYtnPfBZe6LNGcF7J7HB5lbsoJ5n2PrWTU8bON2QJKoQTzDSJiguctPqAsmtjlxFdUrSNFU8Mx_VF089iqhyTsMkEDRM3JJdedFXj"/>
+</div>
+<div>
+<h3 class="font-black text-xl">Miguel Brito</h3>
+<p class="text-[10px] font-bold text-primary uppercase tracking-widest">Managing Partner</p>
+</div>
+</div>
+<p class="text-xs text-slate-600 leading-relaxed mb-6 italic relative z-10">
+                "A nossa missão é traduzir a complexidade do mundo financeiro numa linguagem de oportunidade para o empresário."
+            </p>
+<div class="grid grid-cols-2 gap-4 mt-auto border-t border-slate-200 pt-4 relative z-10">
+<div>
+<span class="text-2xl font-black text-primary block">500M+</span>
+<span class="text-[9px] font-bold text-slate-400 uppercase">Capital Intermediado</span>
+</div>
+<div>
+<span class="text-2xl font-black text-primary block">200+</span>
+<span class="text-[9px] font-bold text-slate-400 uppercase">Empresas Apoiadas</span>
+</div>
+</div>
+</div>
+<div class="col-span-12 widget-card flex-row items-center justify-between bg-on-background py-4 px-8 group cursor-pointer">
+<div class="flex items-center gap-6">
+<span class="text-white font-bold text-lg">Pronto para o próximo passo estratégico?</span>
+<span class="hidden md:block h-8 w-px bg-slate-700"></span>
+<p class="hidden md:block text-slate-400 text-sm">Agende uma reunião direta com a nossa equipa sénior.</p>
+</div>
+<button class="bg-primary text-white px-8 py-3 rounded-xl font-black flex items-center gap-2 group-hover:bg-primary/90 transition-all">
+                AGENDAR REUNIÃO
+                <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</main>
+<footer class="mt-12 border-t border-slate-200 bg-white py-12">
+<div class="max-w-[1600px] mx-auto px-6">
+<div class="flex flex-col md:flex-row justify-between items-start gap-12">
+<div>
+<span class="text-lg font-black tracking-tighter text-[#160D2D] uppercase block mb-4">CREDIT INTERMEDIARY SERVICES</span>
+<p class="text-xs text-slate-500 max-w-sm">
+                    Autorizado e Regulado pela Autoridade de Conduta Financeira. Intermediário de Crédito Registado no Banco de Portugal sob o nº 0000.
+                </p>
+</div>
+<div class="flex flex-wrap gap-8">
+<div class="space-y-3">
+<p class="text-[10px] font-bold text-slate-400 uppercase">Legal</p>
+<div class="flex flex-col gap-2 text-sm text-slate-600">
+<a class="hover:text-primary" href="#">Privacy Policy</a>
+<a class="hover:text-primary" href="#">Terms of Service</a>
+</div>
+</div>
+<div class="space-y-3">
+<p class="text-[10px] font-bold text-slate-400 uppercase">Suporte</p>
+<div class="flex flex-col gap-2 text-sm text-slate-600">
+<a class="hover:text-primary" href="#">Compliance</a>
+<a class="hover:text-primary" href="#">Contacto</a>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-12 pt-8 border-t border-slate-100 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-widest">
+<span>© 2024 CIS GLOBAL</span>
+<span>Made for Excellence</span>
+</div>
+</div>
+</footer>
+
+</body></html>

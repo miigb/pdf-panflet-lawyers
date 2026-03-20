@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>LETRAPERFEIÇOADA — Magazine Edition</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { width: 210mm; min-height: 297mm; margin: 0 auto; position: relative; overflow: hidden; page-break-after: always; background: #ffffff; display: flex; flex-direction: column; }
+
+  /* Logo group */
+  .logo-group { display: flex; align-items: center; gap: 10px; }
+  .ds-logo-small { height: 26px; width: 26px; border-radius: 50%; object-fit: cover; }
+  .wordmark-block { display: flex; flex-direction: column; line-height: 1.15; }
+  .wordmark { font-size: 13px; letter-spacing: -0.02em; }
+  .wordmark b { font-weight: 900; }
+  .wordmark span { font-weight: 300; }
+  .wordmark-sub { font-size: 6.5px; font-weight: 600; color: #8d5e77; letter-spacing: 0.04em; }
+
+  /* Header — thin editorial stripe */
+  .header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 32px;
+    border-bottom: 1px solid #eee;
+  }
+  .header-tag { font-size: 8px; font-weight: 700; color: #BA2979; letter-spacing: 0.15em; text-transform: uppercase; }
+
+  /* ═══ SPLIT HERO: image left, text right ═══ */
+  .split-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 260px;
+  }
+  .split-hero-img {
+    position: relative;
+    overflow: hidden;
+    background: #f0ecee;
+  }
+  .split-hero-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .split-hero-img .overlay {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+    padding: 20px 24px;
+  }
+  .overlay-stat {
+    display: flex; gap: 20px;
+  }
+  .overlay-stat .item .val { font-size: 28px; font-weight: 900; color: white; }
+  .overlay-stat .item .lbl { font-size: 7px; font-weight: 700; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 0.08em; }
+
+  .split-hero-text {
+    padding: 36px 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: white;
+  }
+  .split-hero-text .kicker {
+    font-size: 8px; font-weight: 700; color: #BA2979;
+    letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 16px;
+  }
+  .split-hero-text h1 {
+    font-size: 34px; font-weight: 900; line-height: 1.05; letter-spacing: -0.04em;
+    color: #0d1c2d; margin-bottom: 14px;
+  }
+  .split-hero-text h1 .accent { color: #BA2979; font-style: italic; }
+  .split-hero-text .desc {
+    font-size: 11px; font-weight: 400; line-height: 1.65; color: #564149;
+  }
+
+  /* ═══ HORIZONTAL PROCESS BAR ═══ */
+  .process-bar {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid #eee; border-bottom: 1px solid #eee;
+  }
+  .process-bar-item {
+    padding: 18px 16px;
+    border-right: 1px solid #eee;
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .process-bar-item:last-child { border-right: none; }
+  .process-bar-item .num {
+    font-size: 24px; font-weight: 900; color: #BA2979; opacity: 0.3;
+  }
+  .process-bar-item h4 { font-size: 11px; font-weight: 800; color: #0d1c2d; }
+  .process-bar-item p { font-size: 8.5px; color: #8d5e77; line-height: 1.5; }
+
+  /* ═══ TWO-COLUMN EDITORIAL ═══ */
+  .editorial-split {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0; flex: 1;
+  }
+
+  /* Left column: challenges/solutions */
+  .editorial-left {
+    padding: 28px 28px;
+    border-right: 1px solid #eee;
+  }
+  .ed-section-title {
+    font-size: 18px; font-weight: 900; letter-spacing: -0.03em;
+    margin-bottom: 4px; color: #0d1c2d;
+  }
+  .ed-accent-line { width: 32px; height: 2.5px; background: #BA2979; margin-bottom: 16px; }
+  .ed-pair { margin-bottom: 14px; }
+  .ed-pair-row {
+    display: flex; gap: 8px; align-items: flex-start;
+    padding: 8px 0;
+  }
+  .ed-pair-row .marker {
+    width: 18px; height: 18px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 9px; font-weight: 900; flex-shrink: 0; margin-top: 1px;
+  }
+  .ed-pair-row .marker.x { background: #fdf2f7; color: #BA2979; }
+  .ed-pair-row .marker.ok { background: #e8f5e9; color: #2e7d32; }
+  .ed-pair-row span { font-size: 10px; line-height: 1.45; color: #3d3038; }
+  .ed-divider { height: 1px; background: #f0ecee; margin: 4px 0; }
+
+  /* Right column: why us + testimonial + profile */
+  .editorial-right {
+    padding: 28px 28px;
+    display: flex; flex-direction: column;
+  }
+  .why-items { margin-bottom: 16px; }
+  .why-item {
+    display: flex; gap: 10px; align-items: flex-start; margin-bottom: 12px;
+  }
+  .why-item .wi-icon {
+    width: 28px; height: 28px; border-radius: 8px;
+    background: rgba(186,41,121,0.06); display: flex;
+    align-items: center; justify-content: center;
+    font-size: 12px; flex-shrink: 0;
+  }
+  .why-item h5 { font-size: 11px; font-weight: 800; color: #0d1c2d; margin-bottom: 2px; }
+  .why-item p { font-size: 9px; color: #8d5e77; line-height: 1.45; }
+
+  /* Quote */
+  .magazine-quote {
+    background: #fdf2f7;
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin-bottom: 16px;
+    position: relative;
+  }
+  .magazine-quote::before {
+    content: '\201C'; font-size: 48px; font-weight: 900; color: #BA2979;
+    position: absolute; top: 2px; left: 14px; line-height: 1; opacity: 0.3;
+  }
+  .magazine-quote blockquote {
+    font-size: 11px; font-style: italic; font-weight: 500;
+    line-height: 1.55; color: #3d3038; padding-top: 14px;
+  }
+  .magazine-quote cite {
+    display: block; margin-top: 8px; font-size: 8px; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 0.1em; color: #BA2979; font-style: normal;
+  }
+
+  /* Profile card */
+  .mag-profile {
+    margin-top: auto;
+    background: #0d1c2d;
+    border-radius: 14px;
+    padding: 20px;
+    color: white;
+    display: flex; gap: 16px; align-items: center;
+  }
+  .mag-profile-info h4 { font-size: 16px; font-weight: 900; letter-spacing: -0.02em; }
+  .mag-profile-info .role { font-size: 8px; font-weight: 700; color: #e84393; text-transform: uppercase; letter-spacing: 0.1em; margin-top: 2px; }
+  .mag-profile-info .contacts { margin-top: 8px; font-size: 9px; color: rgba(255,255,255,0.45); line-height: 1.6; }
+  .mag-profile .cta-btn {
+    background: #BA2979; color: white; border: none;
+    padding: 10px 20px; border-radius: 20px;
+    font-size: 9px; font-weight: 800; cursor: pointer; white-space: nowrap;
+  }
+
+  /* Banks footer */
+  .banks-footer {
+    padding: 14px 28px;
+    border-top: 1px solid #eee;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .banks-footer-logos { display: flex; gap: 12px; align-items: center; }
+  .banks-footer-logos img { height: 20px; }
+  .banks-footer-text { font-size: 7px; color: #8d5e77; text-align: right; line-height: 1.5; }
+
+  @media print { body { background: white; } .page { box-shadow: none; margin: 0; } }
+  @media screen { body { background: #e0e0e0; padding: 40px 0; } .page { box-shadow: 0 8px 40px rgba(0,0,0,0.15); margin-bottom: 40px; } }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="logo-group">
+      <img src="public/ds-credito-logo.png" alt="DS Crédito" class="ds-logo-small"/>
+      <div class="wordmark-block">
+        <div class="wordmark"><b>LETRA</b><span>PERFEIÇOADA</span></div>
+        <div class="wordmark-sub">Agente DS Crédito</div>
+      </div>
+    </div>
+    <div class="header-tag">Proposta de Parceria · Advogados</div>
+  </div>
+
+  <!-- Split Hero -->
+  <div class="split-hero">
+    <div class="split-hero-img">
+      <img src="public/vila.png" alt="Propriedade"/>
+      <div class="overlay">
+        <div class="overlay-stat">
+          <div class="item"><div class="val">92%</div><div class="lbl">Taxa Aprovação</div></div>
+          <div class="item"><div class="val">5 dias</div><div class="lbl">Tempo Médio</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="split-hero-text">
+      <div class="kicker">Resumo Executivo 2026</div>
+      <h1>Crédito Especializado para o <span class="accent">Seu Escritório</span></h1>
+      <div class="desc">Parceiro financeiro de confiança que complementa os seus serviços jurídicos, garantindo que o financiamento nunca atrasa os seus processos.</div>
+    </div>
+  </div>
+
+  <!-- Process Bar -->
+  <div class="process-bar">
+    <div class="process-bar-item">
+      <div class="num">01</div>
+      <h4>Referenciação</h4>
+      <p>Encaminhe o contacto do cliente</p>
+    </div>
+    <div class="process-bar-item">
+      <div class="num">02</div>
+      <h4>Análise 24h</h4>
+      <p>Viabilidade financeira rápida</p>
+    </div>
+    <div class="process-bar-item">
+      <div class="num">03</div>
+      <h4>Propostas</h4>
+      <p>Múltiplos bancos comparados</p>
+    </div>
+    <div class="process-bar-item">
+      <div class="num">04</div>
+      <h4>Escritura</h4>
+      <p>Acompanhamento até ao fim</p>
+    </div>
+  </div>
+
+  <!-- Two-column editorial -->
+  <div class="editorial-split">
+    <div class="editorial-left">
+      <div class="ed-section-title">Desafios & Soluções</div>
+      <div class="ed-accent-line"></div>
+
+      <div class="ed-pair">
+        <div class="ed-pair-row"><div class="marker x">✕</div><span>Escrituras atrasadas por demoras no financiamento</span></div>
+        <div class="ed-pair-row"><div class="marker ok">✓</div><span>Financiamento ágil que não atrasa processos</span></div>
+      </div>
+      <div class="ed-divider"></div>
+      <div class="ed-pair">
+        <div class="ed-pair-row"><div class="marker x">✕</div><span>Clientes sem orientação financeira adequada</span></div>
+        <div class="ed-pair-row"><div class="marker ok">✓</div><span>Aconselhamento especializado em articulação</span></div>
+      </div>
+      <div class="ed-divider"></div>
+      <div class="ed-pair">
+        <div class="ed-pair-row"><div class="marker x">✕</div><span>Reestruturações complexas sem parceiro</span></div>
+        <div class="ed-pair-row"><div class="marker ok">✓</div><span>Reestruturação com acompanhamento profissional</span></div>
+      </div>
+      <div class="ed-divider"></div>
+      <div class="ed-pair">
+        <div class="ed-pair-row"><div class="marker x">✕</div><span>Falta de feedback sobre financiamento</span></div>
+        <div class="ed-pair-row"><div class="marker ok">✓</div><span>Reporte regular e transparente</span></div>
+      </div>
+    </div>
+
+    <div class="editorial-right">
+      <div class="ed-section-title">Porquê Nós</div>
+      <div class="ed-accent-line"></div>
+      <div class="why-items">
+        <div class="why-item">
+          <div class="wi-icon">⚖</div>
+          <div><h5>Banco de Portugal</h5><p>Total conformidade regulatória</p></div>
+        </div>
+        <div class="why-item">
+          <div class="wi-icon">§</div>
+          <div><h5>Linguagem Jurídica</h5><p>Entendemos os tempos e processos legais</p></div>
+        </div>
+        <div class="why-item">
+          <div class="wi-icon">🔒</div>
+          <div><h5>Confidencialidade</h5><p>Sigilo total na relação advogado-cliente</p></div>
+        </div>
+        <div class="why-item">
+          <div class="wi-icon">€</div>
+          <div><h5>Comissão de Referência</h5><p>Compensação por cada processo concretizado</p></div>
+        </div>
+      </div>
+
+      <div class="magazine-quote">
+        <blockquote>A parceria acelerou significativamente os nossos processos imobiliários. As escrituras não atrasam.</blockquote>
+        <cite>— Escritório Parceiro</cite>
+      </div>
+
+      <div class="mag-profile">
+        <div class="mag-profile-info">
+          <h4>Paulo Brito</h4>
+          <div class="role">Agente · Especialista Advogados</div>
+          <div class="contacts">infosuporteds@gmail.com · meuintermediario.com</div>
+        </div>
+        <button class="cta-btn">Agendar →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Banks footer -->
+  <div class="banks-footer">
+    <div class="banks-footer-logos">
+      <img src="public/banks/cgd.png" alt="CGD"/>
+      <img src="public/banks/santander.png" alt="Santander"/>
+      <img src="public/banks/bpi.png" alt="BPI"/>
+      <img src="public/banks/bankinter.png" alt="Bankinter"/>
+      <img src="public/banks/novobanco.png" alt="NB"/>
+      <img src="public/banks/bni.png" alt="BNI"/>
+      <img src="public/banks/bancoctt.png" alt="CTT"/>
+      <img src="public/banks/uci.png" alt="UCI"/>
+      <img src="public/banks/abanca.png" alt="Abanca"/>
+    </div>
+    <div class="banks-footer-text"><b style="font-weight:800;">LETRA</b><span style="font-weight:300;">PERFEIÇOADA</span> · Registado no Banco de Portugal · © 2026</div>
+  </div>
+</div>
+</body>
+</html>

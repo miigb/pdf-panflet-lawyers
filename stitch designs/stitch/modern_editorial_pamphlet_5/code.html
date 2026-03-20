@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html class="light" lang="pt-PT"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-highest": "#d4e4fa",
+                        "primary-fixed-dim": "#ffb0d0",
+                        "tertiary": "#415062",
+                        "surface-tint": "#af1e70",
+                        "primary": "#9a0160",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#ffb0d0",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#b9c8de",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#3d0023",
+                        "surface-container-high": "#dbe9ff",
+                        "secondary": "#63597d",
+                        "on-surface-variant": "#564149",
+                        "surface-variant": "#d4e4fa",
+                        "on-background": "#0d1c2d",
+                        "on-secondary-container": "#62587c",
+                        "error-container": "#ffdad6",
+                        "surface-container-low": "#eef4ff",
+                        "on-primary-container": "#ffdde8",
+                        "secondary-container": "#ded1fb",
+                        "on-surface": "#0d1c2d",
+                        "tertiary-container": "#59687b",
+                        "surface-container": "#e5efff",
+                        "background": "#f8f9ff",
+                        "secondary-fixed-dim": "#cdc0ea",
+                        "outline": "#8a7079",
+                        "on-secondary-fixed": "#1f1636",
+                        "on-secondary-fixed-variant": "#4b4164",
+                        "inverse-on-surface": "#e9f1ff",
+                        "primary-fixed": "#ffd8e5",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#8c0057",
+                        "inverse-surface": "#233143",
+                        "on-tertiary-fixed": "#0d1c2d",
+                        "surface-bright": "#f8f9ff",
+                        "surface": "#f8f9ff",
+                        "on-tertiary-container": "#d8e7fe",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#ccdbf2",
+                        "on-tertiary-fixed-variant": "#39485a",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#e9ddff",
+                        "on-primary": "#ffffff",
+                        "outline-variant": "#ddbfc9",
+                        "tertiary-fixed": "#d4e4fa",
+                        "primary-container": "#ba2979"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"]
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer utilities {
+            .snap-y-mandatory {
+                scroll-snap-type: y mandatory;
+            }
+            .snap-start {
+                scroll-snap-align: start;
+            }
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .full-screen-slide {
+            height: 100vh;
+            width: 100vw;
+            scroll-snap-align: start;
+            position: relative;
+            overflow: hidden;
+        }
+        .progress-indicator {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 50;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .progress-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(186, 41, 121, 0.3);
+            transition: all 0.3s ease;
+        }
+        .progress-dot.active {
+            height: 32px;
+            background: #BA2979;
+            border-radius: 4px;
+        }
+        .text-glow {
+            text-shadow: 0 0 30px rgba(186, 41, 121, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-background snap-y-mandatory h-screen overflow-y-scroll scroll-smooth">
+<div class="progress-indicator">
+<a class="progress-dot active" href="#slide1"></a>
+<a class="progress-dot" href="#slide2"></a>
+<a class="progress-dot" href="#slide3"></a>
+<a class="progress-dot" href="#slide4"></a>
+</div>
+<header class="fixed top-0 w-full z-50 px-8 py-6 mix-blend-difference pointer-events-none">
+<div class="flex justify-between items-center max-w-full mx-auto pointer-events-auto">
+<span class="text-sm font-black tracking-widest text-white uppercase">CREDIT INTERMEDIARY SERVICES</span>
+<button class="bg-[#BA2979] text-white px-6 py-2 rounded-full font-bold text-xs uppercase tracking-widest hover:scale-105 transition-transform">Consultation</button>
+</div>
+</header>
+<main>
+<section class="full-screen-slide flex items-center justify-center" id="slide1">
+<div class="absolute inset-0 z-0">
+<img alt="Abstract data flux" class="w-full h-full object-cover brightness-[0.4]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFtZO6C1i7zW1OagNW6xRzbkH1r0Z_RMDQZcGBLo7Jvz5rT4VKtvr4SLYcnNjJrbU-DIdRAdXWm5yWUxGWo3lzmrhKurMlaDXNSveYOVO8oaQfc_6hv5VzS6cu8N3FRKvwCWubw5LyKOwWstfJXcxixTBC59cNus_xqW62YUJUvU8vtRpk4Lu3oRaLVQidMu7v0LIEdW3_sd-Hx8gpM1cm5A9nIdfpD5CbEcbh1J7m57xuPzKJhvidW7nYz_Yf5DhATJT-nBb3J4GC"/>
+<div class="absolute inset-0 bg-gradient-to-tr from-on-background via-transparent to-primary/20"></div>
+</div>
+<div class="relative z-10 text-center px-6 max-w-6xl">
+<span class="text-primary font-bold tracking-[0.5em] text-xs uppercase mb-8 block opacity-80">EXECUTIVE SUMMARY VOL. 01</span>
+<h1 class="text-7xl md:text-[10rem] font-black tracking-tighter text-white leading-none mb-12 text-glow">
+                    Crédito <br/> <span class="text-primary">Especializado</span>
+</h1>
+<p class="text-white/60 text-xl md:text-2xl font-light max-w-2xl mx-auto italic leading-relaxed">
+                    "Desbloqueando o potencial financeiro do seu negócio através de soluções de intermediação estratégica."
+                </p>
+</div>
+<div class="absolute bottom-12 left-12 z-10 border-l-2 border-primary pl-6 py-2">
+<p class="text-white text-xs font-label tracking-widest uppercase mb-1">Market Outlook 2024</p>
+<p class="text-white/40 text-xs font-light">Análise dinâmica de fluxos de capital.</p>
+</div>
+</section>
+<section class="full-screen-slide flex flex-col justify-center px-8 md:px-24" id="slide2">
+<div class="absolute inset-0 z-0">
+<img alt="Digital energy trails" class="w-full h-full object-cover brightness-[0.3]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXlzYDbWeKKhjuBK0pqD-jtdrgP-oNwEGQDdqQy4jj7t09F4yzlk3wA5LWiIZ--OohM-RYQVVTKtmWApY__8HqQnljtwg255ZySNRqkfVdcjzKHNRISSbFISHh-RcIbiXrLZwzbct2jnDzBJ4iwSvDSq0w9Eo5hyLc0qZI5_nHvKqsqIY2MvHl-VNPPIIfhHU_9AH6W8ONSlIKlyNExo8MeEeslDjtsaOIQXydEIZh0O0YfhhsiqZrOr9G3rbYrvxeDVdkxmUrDXoo"/>
+<div class="absolute inset-0 bg-on-background/60"></div>
+</div>
+<div class="relative z-10 w-full max-w-7xl mx-auto">
+<div class="flex items-baseline gap-4 mb-16">
+<span class="text-primary font-black text-6xl">02</span>
+<h2 class="text-5xl md:text-7xl font-bold tracking-tight text-white">Como Agilizamos <span class="text-primary">Processos</span></h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-white/5 backdrop-blur-md p-10 border border-white/10 hover:border-primary/50 transition-all group">
+<span class="material-symbols-outlined text-primary text-4xl mb-6" data-icon="analytics">analytics</span>
+<h3 class="text-2xl font-bold text-white mb-4">Diagnóstico Digital</h3>
+<p class="text-white/60 font-light leading-relaxed">Utilizamos algoritmos proprietários para avaliar a saúde financeira em tempo real, reduzindo o tempo de triagem inicial em 70%.</p>
+</div>
+<div class="bg-white/5 backdrop-blur-md p-10 border border-white/10 hover:border-primary/50 transition-all group">
+<span class="material-symbols-outlined text-primary text-4xl mb-6" data-icon="account_tree">account_tree</span>
+<h3 class="text-2xl font-bold text-white mb-4">Estruturação Ágil</h3>
+<p class="text-white/60 font-light leading-relaxed">A nossa rede de parceiros institucionais permite uma montagem de dossier técnica e irrepreensível, pronta para aprovação imediata.</p>
+</div>
+<div class="bg-white/5 backdrop-blur-md p-10 border border-white/10 hover:border-primary/50 transition-all group">
+<span class="material-symbols-outlined text-primary text-4xl mb-6" data-icon="speed">speed</span>
+<h3 class="text-2xl font-bold text-white mb-4">Execução Veloz</h3>
+<p class="text-white/60 font-light leading-relaxed">Monitorização proativa de cada etapa junto das entidades bancárias para garantir que o capital chega onde é necessário.</p>
+</div>
+</div>
+<div class="mt-16 flex items-center gap-6">
+<div class="h-px flex-1 bg-white/20"></div>
+<p class="text-white font-medium text-xl">Redução de <span class="text-primary font-black">15 dias úteis</span> no ciclo de aprovação.</p>
+<div class="h-px flex-1 bg-white/20"></div>
+</div>
+</div>
+</section>
+<section class="full-screen-slide flex items-center overflow-hidden" id="slide3">
+<div class="absolute inset-0 z-0">
+<img alt="Architectural abstract" class="w-full h-full object-cover brightness-[0.4]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHzCBhjxfbf7IJgNf91uyuabTrQIabvQuHGNvr84D_diPzzy7VMNeK0iszQDiUDOmRhzbZ7pgq9LbRHNBkr0E5JuZCpelpzWPUKOqsnvy4R04AwtZavcq9msAV192_4VSLiBcEh4LPzteugOE2rhbyYjAyTxf6-TRIgkuPg0qg04Qmy5a7oI52_Zm7F4dLmYGkPT9hoXi0hGjNPLnH7DVBWJAV_Y53Ussw5AcmXwgAmNT6o1crpEeZGYnsqtS4i-B1qTXWIbnEnJz4"/>
+</div>
+<div class="relative z-10 grid grid-cols-1 md:grid-cols-2 h-full w-full">
+<div class="flex flex-col justify-center p-8 md:p-24 bg-on-background/40 backdrop-blur-sm">
+<h2 class="text-5xl md:text-8xl font-black text-white leading-none mb-8">Vantagens <br/><span class="text-primary">Estratégicas</span></h2>
+<p class="text-white/70 text-xl font-light max-w-md leading-relaxed">
+                        Não somos apenas intermediários. Somos parceiros que alinham a estrutura de capital com a visão de longo prazo.
+                    </p>
+</div>
+<div class="grid grid-cols-2 gap-px bg-white/10">
+<div class="flex flex-col justify-center p-12 bg-on-background/80 hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-primary mb-4" data-icon="verified_user">verified_user</span>
+<h4 class="text-white font-bold text-lg mb-2">Credibilidade</h4>
+<p class="text-white/50 text-xs">Acesso privilegiado a linhas exclusivas.</p>
+</div>
+<div class="flex flex-col justify-center p-12 bg-on-background/60 hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-primary mb-4" data-icon="payments">payments</span>
+<h4 class="text-white font-bold text-lg mb-2">Otimização</h4>
+<p class="text-white/50 text-xs">Negociação agressiva de taxas.</p>
+</div>
+<div class="flex flex-col justify-center p-12 bg-on-background/60 hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-primary mb-4" data-icon="security">security</span>
+<h4 class="text-white font-bold text-lg mb-2">Segurança</h4>
+<p class="text-white/50 text-xs">Total conformidade regulamentar.</p>
+</div>
+<div class="flex flex-col justify-center p-12 bg-on-background/80 hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-primary mb-4" data-icon="trending_up">trending_up</span>
+<h4 class="text-white font-bold text-lg mb-2">Escala</h4>
+<p class="text-white/50 text-xs">Crescimento estruturado e ágil.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="full-screen-slide flex flex-col" id="slide4">
+<div class="flex-1 grid grid-cols-1 md:grid-cols-12 relative overflow-hidden">
+<div class="md:col-span-5 relative bg-black flex items-end">
+<img alt="City abstraction" class="absolute inset-0 w-full h-full object-cover opacity-50 grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUz0UReanaS78xc3vBgjE3OQC9Pwqo7W5ksXNxDoONCguOZEN2S09gmzWT0MxFyIQAHJcoIjjG-Ib3JAsq9ZzRRBZOiaCMY_Yc8xcGuKt1yuR6vcuOTg6igITaYPOM3OSOlcE5SoIGWZgY6VOUoUX9h2A2fnSGzVDFbCH6hHyQvM0QIRwSndqxNPh5WoD4h4av3jgj27X0fXlv2dxXaXgvrVoktbJZb29rpojUniSszSwktcwJvN91weiVwKeOD3Xzvtz48DDY9KWh"/>
+<div class="relative z-10 p-12 w-full bg-gradient-to-t from-black to-transparent">
+<h3 class="text-6xl font-black text-white mb-2">Miguel Brito</h3>
+<p class="text-primary font-bold tracking-[0.3em] uppercase text-xs">Managing Partner</p>
+</div>
+</div>
+<div class="md:col-span-7 bg-white p-8 md:p-24 flex flex-col justify-center overflow-y-auto">
+<div class="max-w-xl space-y-10">
+<div class="space-y-4">
+<h2 class="text-4xl font-black text-on-background tracking-tight uppercase">O Visionário</h2>
+<div class="w-16 h-2 bg-primary"></div>
+</div>
+<div class="space-y-6 text-on-surface-variant font-light text-lg leading-relaxed">
+<p class="text-2xl font-normal text-on-background italic">"O crédito não deve ser um fardo, mas sim o combustível para a inovação."</p>
+<p>Com mais de 15 anos de experiência, Miguel Brito lidera reestruturações de capital complexas no tecido empresarial nacional.</p>
+<div class="grid grid-cols-2 gap-12 py-10 border-y border-slate-100">
+<div>
+<p class="text-primary font-black text-5xl mb-1">500M+</p>
+<p class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Capital Intermediado</p>
+</div>
+<div>
+<p class="text-primary font-black text-5xl mb-1">200+</p>
+<p class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Empresas Apoiadas</p>
+</div>
+</div>
+<p class="text-sm">Especialista em Análise de Risco, fundou a Credit Intermediary Services para democratizar soluções de crédito sofisticadas.</p>
+</div>
+<button class="w-full bg-on-background text-white py-6 rounded-none font-black text-xs uppercase tracking-[0.3em] hover:bg-primary transition-all flex items-center justify-center gap-4 group">
+                            Agendar reunião
+                            <span class="material-symbols-outlined group-hover:translate-x-4 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<footer class="bg-on-background py-8 px-12 border-t border-white/5">
+<div class="flex flex-col md:flex-row justify-between items-center gap-6 max-w-7xl mx-auto">
+<p class="text-[10px] text-white/30 uppercase tracking-widest">© 2024 Credit Intermediary Services. Intermediário nº 0000.</p>
+<div class="flex gap-8">
+<a class="text-[10px] text-white/40 hover:text-white transition-colors uppercase tracking-widest" href="#">Privacy</a>
+<a class="text-[10px] text-white/40 hover:text-white transition-colors uppercase tracking-widest" href="#">Compliance</a>
+</div>
+</div>
+</footer>
+</section>
+</main>
+<script>
+        // Smooth active dot tracking
+        const sections = document.querySelectorAll('.full-screen-slide');
+        const dots = document.querySelectorAll('.progress-dot');
+        const observerOptions = {
+            root: null,
+            threshold: 0.6
+        };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    dots.forEach(dot => {
+                        dot.classList.remove('active');
+                        if (dot.getAttribute('href') === `#${id}`) {
+                            dot.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+        sections.forEach(section => observer.observe(section));
+    </script>
+
+</body></html>

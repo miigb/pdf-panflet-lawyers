@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>LETRAPERFEIÇOADA — Parceria Jurídica Minimalista</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #f8f9ff;
+    color: #0d1c2d;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page { width: 210mm; min-height: 297mm; margin: 0 auto; position: relative; overflow: hidden; page-break-after: always; background: #ffffff; display: flex; flex-direction: column; }
+
+  /* ═══ HEADER ═══ */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 40px;
+  }
+  .logo-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .ds-logo-small {
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .wordmark-block {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+  }
+  .wordmark { font-size: 14px; letter-spacing: -0.02em; }
+  .wordmark b { font-weight: 900; }
+  .wordmark span { font-weight: 300; }
+  .wordmark-sub {
+    font-size: 7px;
+    font-weight: 600;
+    color: #8d5e77;
+    letter-spacing: 0.04em;
+  }
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 9px;
+    color: #8d5e77;
+    font-weight: 500;
+  }
+  .header-right .active {
+    color: #BA2979;
+    font-weight: 700;
+    border-bottom: 2px solid #BA2979;
+    padding-bottom: 2px;
+  }
+  .header-cta {
+    background: #BA2979;
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    font-size: 9px;
+    font-weight: 700;
+    border-radius: 20px;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+  }
+
+  /* ═══ HERO ═══ */
+  .hero {
+    padding: 20px 40px 32px;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 36px;
+    align-items: start;
+  }
+  .hero-left {}
+  .hero-badge {
+    font-size: 7.5px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #BA2979;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-size: 44px;
+    font-weight: 900;
+    line-height: 1.0;
+    letter-spacing: -0.04em;
+    color: #0d1c2d;
+    margin-bottom: 20px;
+  }
+  .hero h1 .accent {
+    color: #BA2979;
+    font-style: italic;
+  }
+  .hero .desc {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.65;
+    color: #564149;
+    max-width: 360px;
+    margin-bottom: 24px;
+  }
+  .hero-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .hero-author-line {
+    width: 3px;
+    height: 36px;
+    background: #BA2979;
+    border-radius: 2px;
+  }
+  .hero-author-info .name {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .hero-author-info .role {
+    font-size: 9px;
+    color: #BA2979;
+    font-weight: 500;
+  }
+
+  /* Hero image */
+  .hero-right {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .hero-image-container {
+    width: 100%;
+    aspect-ratio: 3/3.5;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #eef4ff;
+  }
+  .hero-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(30%);
+    opacity: 0.85;
+  }
+
+  /* ═══ PROCESS SECTION ═══ */
+  .process {
+    padding: 28px 40px;
+    background: #f8f9ff;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .section-title {
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: -0.03em;
+  }
+  .section-line {
+    width: 40px;
+    height: 3px;
+    background: #BA2979;
+    margin-left: 4px;
+  }
+
+  .process-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .process-card {
+    background: white;
+    border-radius: 14px;
+    padding: 22px 18px;
+    transition: transform 0.2s;
+  }
+  .process-card:hover { transform: translateY(-2px); }
+  .process-card .step-icon {
+    color: #BA2979;
+    font-size: 22px;
+    margin-bottom: 10px;
+    display: block;
+  }
+  .process-card h3 {
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    margin-bottom: 6px;
+  }
+  .process-card p {
+    font-size: 10px;
+    color: #564149;
+    line-height: 1.55;
+    font-weight: 400;
+  }
+
+  /* Stats bar */
+  .stats-bar {
+    margin: 0 40px;
+    background: #BA2979;
+    color: white;
+    border-radius: 14px;
+    padding: 18px 28px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+  }
+  .stats-bar .stat-divider {
+    width: 1px;
+    height: 36px;
+    background: rgba(255,255,255,0.2);
+  }
+  .stats-bar .stat .value {
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: -0.03em;
+  }
+  .stats-bar .stat .label {
+    font-size: 7px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.8;
+    margin-top: 2px;
+  }
+
+  /* ═══ TWO COLUMN: DISTINGUE + QUOTE ═══ */
+  .distingue-quote {
+    padding: 28px 40px;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 28px;
+    align-items: start;
+  }
+
+  .distingue-list {}
+  .distingue-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    margin-bottom: 18px;
+  }
+  .distingue-icon {
+    color: #BA2979;
+    font-size: 20px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .distingue-item h4 {
+    font-size: 12px;
+    font-weight: 800;
+    margin-bottom: 3px;
+  }
+  .distingue-item p {
+    font-size: 9.5px;
+    color: #564149;
+    line-height: 1.5;
+  }
+
+  .quote-block {
+    padding-left: 20px;
+  }
+  .quote-title {
+    font-size: 34px;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+  .quote-title .accent { color: #BA2979; font-style: italic; }
+
+  .quote-card {
+    background: #f8f9ff;
+    border-left: 3px solid #BA2979;
+    border-radius: 0 12px 12px 0;
+    padding: 20px 22px;
+  }
+  .quote-card blockquote {
+    font-size: 12px;
+    font-style: italic;
+    font-weight: 500;
+    line-height: 1.6;
+    color: #3d3038;
+  }
+  .quote-card cite {
+    display: block;
+    margin-top: 10px;
+    font-size: 8px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #BA2979;
+    font-style: normal;
+  }
+
+  /* ═══ CTA SECTION ═══ */
+  .cta-section {
+    margin: 0 40px 24px;
+    background: #0d1c2d;
+    color: white;
+    border-radius: 20px;
+    padding: 32px 36px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    position: relative;
+    overflow: hidden;
+    flex: 1;
+  }
+  .cta-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent 0%, rgba(186,41,121,0.05) 100%);
+    pointer-events: none;
+  }
+  .cta-left {
+    position: relative;
+    z-index: 1;
+  }
+  .cta-left h2 {
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    margin-bottom: 12px;
+    line-height: 1.15;
+  }
+  .cta-left p {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.6;
+    margin-bottom: 18px;
+    max-width: 280px;
+  }
+  .cta-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 10px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: rgba(255,255,255,0.7);
+  }
+  .cta-contact-item .dot {
+    width: 6px;
+    height: 6px;
+    background: #BA2979;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .cta-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    text-align: right;
+    position: relative;
+    z-index: 1;
+  }
+  .cta-role-label {
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #BA2979;
+    margin-bottom: 4px;
+  }
+  .cta-name {
+    font-size: 36px;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .cta-spec {
+    font-size: 10px;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 18px;
+  }
+  .cta-button {
+    background: #BA2979;
+    color: white;
+    border: none;
+    padding: 14px 32px;
+    font-size: 11px;
+    font-weight: 800;
+    border-radius: 24px;
+    cursor: pointer;
+    letter-spacing: 0.04em;
+  }
+
+  /* ═══ BANKS + FOOTER ═══ */
+  .bottom-bar {
+    padding: 16px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #ecdfe6;
+  }
+  .bottom-banks {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .bottom-banks img {
+    height: 22px;
+  }
+  .bottom-info {
+    font-size: 7px;
+    color: #8d5e77;
+    text-align: right;
+    line-height: 1.5;
+  }
+  .bottom-info b { font-weight: 800; }
+
+  @media print {
+    body { background: white; }
+    .page { box-shadow: none; margin: 0; }
+  }
+  @media screen {
+    body { background: #e0e0e0; padding: 40px 0; }
+    .page { box-shadow: 0 8px 40px rgba(0,0,0,0.15); margin-bottom: 40px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ SINGLE PAGE MINIMALIST BRIEF ═══════════ -->
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="logo-group">
+      <img src="public/ds-credito-logo.png" alt="DS Crédito" class="ds-logo-small"/>
+      <div class="wordmark-block">
+        <div class="wordmark"><b>LETRA</b><span>PERFEIÇOADA</span></div>
+        <div class="wordmark-sub">Agente DS Crédito</div>
+      </div>
+    </div>
+    <div class="header-right">
+      <span class="active">Visão Geral</span>
+      <span>Processos</span>
+      <span>Diferencial</span>
+      <span>Contacto</span>
+      <button class="header-cta">Solicitar Consultoria</button>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-left">
+      <div class="hero-badge">Documento de Briefing 2026</div>
+      <h1>Crédito Especializado para os Clientes do <span class="accent">Seu Escritório</span>.</h1>
+      <div class="desc">
+        Parceiro financeiro de confiança que complementa os seus serviços, garantindo agilidade e conformidade total em cada processo de financiamento.
+      </div>
+      <div class="hero-author">
+        <div class="hero-author-line"></div>
+        <div class="hero-author-info">
+          <div class="name">Especialista: Advogados</div>
+          <div class="role">Paulo Brito · Agente DS Crédito</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-image-container">
+        <img src="public/penthouse.png" alt="Propriedade de luxo"/>
+      </div>
+    </div>
+  </div>
+
+  <!-- Process -->
+  <div class="process">
+    <div class="section-header">
+      <div class="section-title">Como a Letraperfeiçoada Agiliza os Seus Processos</div>
+      <div class="section-line"></div>
+    </div>
+    <div class="process-cards">
+      <div class="process-card">
+        <span class="step-icon">🤝</span>
+        <h3>Referenciação Simples</h3>
+        <p>Basta encaminhar o contacto do cliente. Iniciamos o processo de imediato com total discrição e profissionalismo.</p>
+      </div>
+      <div class="process-card">
+        <span class="step-icon">⏱</span>
+        <h3>Viabilidade em 24h</h3>
+        <p>Análise de viabilidade financeira em 24 horas, permitindo que o processo legal avance sem incertezas.</p>
+      </div>
+      <div class="process-card">
+        <span class="step-icon">🏦</span>
+        <h3>Múltiplas Propostas</h3>
+        <p>Apresentação de propostas de múltiplos bancos ao cliente, garantindo as melhores condições do mercado.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats-bar">
+    <div class="stat">
+      <div class="value">92%</div>
+      <div class="label">Taxa de Aprovação</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <div class="value">5 dias</div>
+      <div class="label">Tempo Médio de Aprovação</div>
+    </div>
+  </div>
+
+  <!-- Distingue + Quote -->
+  <div class="distingue-quote">
+    <div class="distingue-list">
+      <div class="distingue-item">
+        <span class="distingue-icon">✦</span>
+        <div>
+          <h4>Conformidade Total</h4>
+          <p>Registo no Banco de Portugal — total conformidade regulatória em todos os atos.</p>
+        </div>
+      </div>
+      <div class="distingue-item">
+        <span class="distingue-icon">§</span>
+        <div>
+          <h4>Experiência Jurídica</h4>
+          <p>Equipa que entende a linguagem dos advogados e os tempos dos processos legais.</p>
+        </div>
+      </div>
+      <div class="distingue-item">
+        <span class="distingue-icon">🔒</span>
+        <div>
+          <h4>Confidencialidade</h4>
+          <p>Comunicação adaptada à relação advogado-cliente com sigilo absoluto.</p>
+        </div>
+      </div>
+    </div>
+    <div class="quote-block">
+      <div class="quote-title">O Que Nos <span class="accent">Distingue</span>.</div>
+      <div class="quote-card">
+        <blockquote>
+          A parceria com a Letraperfeiçoada acelerou significativamente os nossos processos imobiliários. As escrituras não atrasam.
+        </blockquote>
+        <cite>— Escritório Parceiro</cite>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <div class="cta-left">
+      <h2>Pronto para agilizar os seus processos?</h2>
+      <p>Apoio direto a escritórios de advogados em estratégias de crédito. O meu objetivo é simplificar o processo e poupar-lhe tempo.</p>
+      <div class="cta-contact-item">
+        <span class="dot"></span>
+        <span>infosuporteds@gmail.com</span>
+      </div>
+      <div class="cta-contact-item">
+        <span class="dot"></span>
+        <span>meuintermediario.com</span>
+      </div>
+    </div>
+    <div class="cta-right">
+      <div class="cta-role-label">Agente de Intermediação de Crédito</div>
+      <div class="cta-name">Paulo Brito</div>
+      <div class="cta-spec">Especialista: Advogados</div>
+      <button class="cta-button">Agendar Briefing</button>
+    </div>
+  </div>
+
+  <!-- Banks + Footer -->
+  <div class="bottom-bar">
+    <div class="bottom-banks">
+      <img src="public/banks/cgd.png" alt="CGD"/>
+      <img src="public/banks/santander.png" alt="Santander"/>
+      <img src="public/banks/bpi.png" alt="BPI"/>
+      <img src="public/banks/bankinter.png" alt="Bankinter"/>
+      <img src="public/banks/novobanco.png" alt="Novo Banco"/>
+      <img src="public/banks/bni.png" alt="BNI"/>
+      <img src="public/banks/bancoctt.png" alt="CTT"/>
+      <img src="public/banks/uci.png" alt="UCI"/>
+      <img src="public/banks/abanca.png" alt="Abanca"/>
+    </div>
+    <div class="bottom-info">
+      <b>LETRA</b><span style="font-weight: 300;">PERFEIÇOADA</span> · Intermediário de Crédito<br/>
+      Registado no Banco de Portugal · © 2026 Paulo Brito
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

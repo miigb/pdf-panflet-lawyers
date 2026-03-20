@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>LETRAPERFEIÇOADA — Parceria para Advogados</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #f8f9ff;
+    color: #0d1c2d;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* PAGE 1 — COVER */
+  .page { width: 210mm; min-height: 297mm; margin: 0 auto; position: relative; overflow: hidden; page-break-after: always; }
+
+  .page-1 {
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Header bar */
+  .header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 32px;
+    border-bottom: 3px solid #0d1c2d;
+  }
+  .logo-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .ds-logo-small {
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .wordmark-block {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+  }
+  .wordmark { font-size: 14px; letter-spacing: -0.02em; }
+  .wordmark b { font-weight: 900; }
+  .wordmark span { font-weight: 300; }
+  .wordmark-sub {
+    font-size: 7px;
+    font-weight: 600;
+    color: #8d5e77;
+    letter-spacing: 0.04em;
+  }
+  .badge {
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: 2px solid #BA2979;
+    color: #BA2979;
+    padding: 4px 12px;
+    border-radius: 2px;
+  }
+
+  /* Hero section */
+  .hero {
+    padding: 40px 32px 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .hero-label {
+    display: inline-block;
+    background: #BA2979;
+    color: white;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-size: 52px;
+    font-weight: 900;
+    line-height: 0.92;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .hero h1 .highlight {
+    display: inline-block;
+    background: #0d1c2d;
+    color: white;
+    padding: 4px 14px;
+    transform: rotate(-1deg);
+    margin-top: 4px;
+  }
+
+  /* Two column layout below hero */
+  .hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 28px;
+    flex: 1;
+  }
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .hero-tagline {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: #3d3038;
+    border-left: 4px solid #BA2979;
+    padding-left: 16px;
+    max-width: 280px;
+  }
+  .hero-right {
+    position: relative;
+  }
+  .hero-image {
+    width: 100%;
+    height: 280px;
+    border: 3px solid #0d1c2d;
+    box-shadow: 8px 8px 0 #0d1c2d;
+    overflow: hidden;
+    transform: rotate(1deg);
+  }
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(60%) contrast(110%);
+  }
+
+  /* Steps section */
+  .steps-section {
+    padding: 0 32px;
+    margin-top: 4px;
+  }
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .section-number {
+    font-size: 72px;
+    font-weight: 900;
+    color: rgba(13,28,45,0.06);
+    line-height: 1;
+  }
+  .section-title {
+    font-size: 28px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+  }
+  .section-title .accent { color: #BA2979; }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .step-card {
+    border: 2px solid #0d1c2d;
+    padding: 20px 16px;
+    background: white;
+    transition: transform 0.2s;
+  }
+  .step-card:nth-child(1) { transform: rotate(-0.5deg); }
+  .step-card:nth-child(2) { transform: rotate(0.5deg); background: #eef4ff; }
+  .step-card:nth-child(3) { transform: rotate(-0.3deg); }
+  .step-icon {
+    width: 36px;
+    height: 36px;
+    background: #0d1c2d;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 900;
+    margin-bottom: 12px;
+  }
+  .step-card h3 {
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    margin-bottom: 6px;
+  }
+  .step-card p {
+    font-size: 10px;
+    color: #564149;
+    line-height: 1.5;
+    font-weight: 500;
+  }
+
+  /* Metric banner */
+  .metric-banner {
+    background: #BA2979;
+    color: white;
+    padding: 20px 24px;
+    border: 3px solid #0d1c2d;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 32px 24px;
+  }
+  .metric-banner p {
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+  }
+  .metric-banner .metric-highlight {
+    background: white;
+    color: #BA2979;
+    padding: 2px 10px;
+    display: inline-block;
+    transform: rotate(-1deg);
+  }
+
+  /* Stats strip */
+  .stats-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 3px solid #0d1c2d;
+  }
+  .stat-item {
+    padding: 18px 16px;
+    text-align: center;
+    border-right: 2px solid #0d1c2d;
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-value {
+    font-size: 28px;
+    font-weight: 900;
+    color: #BA2979;
+    letter-spacing: -0.03em;
+  }
+  .stat-label {
+    font-size: 7px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #564149;
+    margin-top: 4px;
+  }
+
+  /* PAGE 2 — CONTENT */
+  .page-2 { background: #ffffff; display: flex; flex-direction: column; }
+
+  .page2-header {
+    padding: 24px 32px;
+    border-bottom: 3px solid #0d1c2d;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .page2-header .wordmark { font-size: 13px; }
+  .page2-label {
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #564149;
+  }
+
+  /* Challenges & Solutions */
+  .challenges-section {
+    padding: 28px 32px;
+  }
+  .cs-title {
+    font-size: 32px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+    margin-bottom: 4px;
+    line-height: 1;
+  }
+  .cs-underline {
+    width: 60px;
+    height: 4px;
+    background: #BA2979;
+    margin-bottom: 20px;
+  }
+  .cs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+  .cs-column-header {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 10px 16px;
+    border-bottom: 2px solid #0d1c2d;
+  }
+  .cs-column-header.challenges { color: #0d1c2d; background: #fdf2f7; }
+  .cs-column-header.solutions { color: white; background: #BA2979; }
+
+  .cs-row {
+    display: contents;
+  }
+  .cs-cell {
+    padding: 12px 16px;
+    font-size: 10.5px;
+    line-height: 1.5;
+    font-weight: 500;
+    border-bottom: 1px solid #ecdfe6;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .cs-cell .icon {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 900;
+    margin-top: 1px;
+  }
+  .cs-cell.challenge .icon { background: #fdf2f7; color: #BA2979; }
+  .cs-cell.solution .icon { background: #e8f5e9; color: #2e7d32; }
+
+  /* Why us section */
+  .why-section {
+    padding: 24px 32px;
+  }
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 16px;
+  }
+  .why-card {
+    border: 2px solid #0d1c2d;
+    padding: 16px;
+    background: white;
+  }
+  .why-card:nth-child(odd) { transform: rotate(-0.3deg); }
+  .why-card:nth-child(even) { transform: rotate(0.3deg); }
+  .why-card h4 {
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    letter-spacing: -0.01em;
+  }
+  .why-card p {
+    font-size: 9.5px;
+    color: #564149;
+    line-height: 1.5;
+    font-weight: 500;
+  }
+  .why-card .card-icon {
+    font-size: 9px;
+    font-weight: 800;
+    background: #BA2979;
+    color: white;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+  }
+
+  /* Testimonial */
+  .testimonial {
+    margin: 16px 32px;
+    background: #0d1c2d;
+    color: white;
+    padding: 24px;
+    border: 3px solid #0d1c2d;
+    position: relative;
+  }
+  .testimonial::before {
+    content: '\201C';
+    font-size: 80px;
+    font-weight: 900;
+    color: #BA2979;
+    position: absolute;
+    top: -10px;
+    left: 16px;
+    line-height: 1;
+  }
+  .testimonial blockquote {
+    font-size: 13px;
+    font-style: italic;
+    font-weight: 600;
+    line-height: 1.6;
+    padding-left: 4px;
+    margin-top: 20px;
+  }
+  .testimonial cite {
+    display: block;
+    font-size: 9px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #BA2979;
+    margin-top: 12px;
+    font-style: normal;
+  }
+
+  /* Profile + Banks section */
+  .profile-banks {
+    padding: 20px 32px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    flex: 1;
+  }
+  .profile-card {
+    border: 3px solid #0d1c2d;
+    box-shadow: 6px 6px 0 #0d1c2d;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    transform: rotate(-0.5deg);
+  }
+  .profile-photo {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 3px solid #BA2979;
+    overflow: hidden;
+    margin-bottom: 12px;
+  }
+  .profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .profile-name {
+    font-size: 22px;
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+  }
+  .profile-role {
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #BA2979;
+    margin-top: 4px;
+  }
+  .profile-desc {
+    font-size: 10px;
+    color: #564149;
+    line-height: 1.5;
+    margin-top: 10px;
+    font-weight: 500;
+  }
+  .profile-contact {
+    margin-top: auto;
+    padding-top: 12px;
+    border-top: 1px solid #ecdfe6;
+    font-size: 9px;
+    font-weight: 600;
+    color: #0d1c2d;
+  }
+  .profile-contact div { margin-bottom: 4px; }
+
+  .banks-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .banks-label {
+    font-size: 9px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #564149;
+    margin-bottom: 12px;
+  }
+  .banks-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  .bank-logo {
+    height: 36px;
+    border: 1px solid #ecdfe6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    background: white;
+  }
+  .bank-logo img {
+    max-height: 24px;
+    max-width: 80px;
+    object-fit: contain;
+  }
+
+  /* CTA banner */
+  .cta-banner {
+    background: #BA2979;
+    color: white;
+    padding: 16px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 3px solid #0d1c2d;
+  }
+  .cta-banner h3 {
+    font-size: 18px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+  }
+  .cta-button {
+    background: white;
+    color: #BA2979;
+    border: none;
+    padding: 10px 28px;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 12px 32px;
+    border-top: 2px solid #0d1c2d;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 7px;
+    color: #8d5e77;
+  }
+  .footer .ds-logo img {
+    height: 20px;
+    opacity: 0.5;
+  }
+
+  /* Print styles */
+  @media print {
+    body { background: white; }
+    .page { box-shadow: none; margin: 0; }
+  }
+  @media screen {
+    body { background: #e0e0e0; padding: 40px 0; }
+    .page { box-shadow: 0 8px 40px rgba(0,0,0,0.15); margin-bottom: 40px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════ PAGE 1 ═══════════════════════════════════════════════ -->
+<div class="page page-1">
+  <div class="header-bar">
+    <div class="logo-group">
+      <img src="public/ds-credito-logo.png" alt="DS Crédito" class="ds-logo-small"/>
+      <div class="wordmark-block">
+        <div class="wordmark"><b>LETRA</b><span>PERFEIÇOADA</span></div>
+        <div class="wordmark-sub">Agente DS Crédito</div>
+      </div>
+    </div>
+    <div class="badge">Registado no Banco de Portugal</div>
+  </div>
+
+  <div class="hero">
+    <div class="hero-label">Proposta de Parceria · Advogados</div>
+    <h1>
+      Crédito<br/>
+      <span class="highlight">Especializado</span>
+    </h1>
+    <h1 style="font-size: 22px; font-weight: 400; letter-spacing: -0.01em; text-transform: none; margin-top: 8px; color: #564149;">
+      para os Clientes do Seu Escritório
+    </h1>
+
+    <div class="hero-content">
+      <div class="hero-left">
+        <div class="hero-tagline">
+          Parceiro financeiro de confiança que complementa os seus serviços jurídicos — garantindo que o financiamento nunca atrasa os seus processos.
+        </div>
+        <div style="display: flex; gap: 4px; align-items: center; margin-bottom: 20px;">
+          <img src="public/ds-credito-logo.png" alt="DS Crédito" style="height: 28px; opacity: 0.6;"/>
+          <span style="font-size: 8px; color: #8d5e77; font-weight: 600;">Agente DS Crédito</span>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-image">
+          <img src="public/hero-property.jpg" alt="Propriedade"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Steps -->
+  <div class="steps-section">
+    <div class="section-header">
+      <div class="section-number">02</div>
+      <div class="section-title">Como <span class="accent">Funciona</span></div>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-icon">01</div>
+        <h3>Referenciação Simples</h3>
+        <p>Basta encaminhar o contacto do cliente. Iniciamos de imediato com total discrição.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-icon" style="background: #BA2979;">02</div>
+        <h3>Viabilidade em 24h</h3>
+        <p>Análise de viabilidade financeira em 24 horas para que o processo legal avance sem incertezas.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-icon">03</div>
+        <h3>Múltiplas Propostas</h3>
+        <p>Apresentação de propostas de múltiplos bancos ao cliente com as melhores condições.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Metric Banner -->
+  <div class="metric-banner">
+    <p>Taxa de aprovação de <span class="metric-highlight">92%</span> com tempo médio de <span class="metric-highlight">5 dias</span> úteis.</p>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats-strip">
+    <div class="stat-item">
+      <div class="stat-value">92%</div>
+      <div class="stat-label">Taxa de Aprovação</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">5 dias</div>
+      <div class="stat-label">Tempo Médio</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">Maioria</div>
+      <div class="stat-label">Bancos Parceiros</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">22+</div>
+      <div class="stat-label">Anos de Experiência</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ PAGE 2 ═══════════════════════════════════════════════ -->
+<div class="page page-2">
+  <div class="page2-header">
+    <div class="logo-group">
+      <img src="public/ds-credito-logo.png" alt="DS Crédito" class="ds-logo-small"/>
+      <div class="wordmark-block">
+        <div class="wordmark"><b>LETRA</b><span>PERFEIÇOADA</span></div>
+        <div class="wordmark-sub">Agente DS Crédito</div>
+      </div>
+    </div>
+    <div class="page2-label">Proposta de Parceria</div>
+  </div>
+
+  <!-- Challenges & Solutions -->
+  <div class="challenges-section">
+    <div class="cs-title">Desafios & <span style="color: #BA2979;">Soluções</span></div>
+    <div class="cs-underline"></div>
+
+    <div class="cs-grid">
+      <div class="cs-column-header challenges">Desafios que Enfrenta</div>
+      <div class="cs-column-header solutions">As Nossas Soluções</div>
+
+      <div class="cs-cell challenge">
+        <div class="icon">✕</div>
+        <span>Escrituras atrasadas por demoras no financiamento do cliente</span>
+      </div>
+      <div class="cs-cell solution">
+        <div class="icon">✓</div>
+        <span>Financiamento ágil que não atrasa escrituras nem processos</span>
+      </div>
+
+      <div class="cs-cell challenge">
+        <div class="icon">✕</div>
+        <span>Clientes sem orientação financeira adequada durante processos legais</span>
+      </div>
+      <div class="cs-cell solution">
+        <div class="icon">✓</div>
+        <span>Aconselhamento financeiro especializado em articulação com o escritório</span>
+      </div>
+
+      <div class="cs-cell challenge">
+        <div class="icon">✕</div>
+        <span>Reestruturações de crédito complexas sem parceiro especializado</span>
+      </div>
+      <div class="cs-cell solution">
+        <div class="icon">✓</div>
+        <span>Soluções de reestruturação com acompanhamento profissional</span>
+      </div>
+
+      <div class="cs-cell challenge">
+        <div class="icon">✕</div>
+        <span>Falta de feedback sobre o andamento do financiamento dos clientes</span>
+      </div>
+      <div class="cs-cell solution">
+        <div class="icon">✓</div>
+        <span>Reporte regular e transparente do estado de cada processo</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Why Us -->
+  <div class="why-section">
+    <div class="cs-title" style="font-size: 24px;">O Que Nos <span style="color: #BA2979;">Distingue</span></div>
+    <div class="cs-underline"></div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="card-icon">BP</div>
+        <h4>Registo no Banco de Portugal</h4>
+        <p>Total conformidade regulatória em todos os atos de intermediação de crédito.</p>
+      </div>
+      <div class="why-card">
+        <div class="card-icon">EJ</div>
+        <h4>Experiência Jurídica</h4>
+        <p>Equipa que entende a linguagem dos advogados e os tempos dos processos legais.</p>
+      </div>
+      <div class="why-card">
+        <div class="card-icon">AD</div>
+        <h4>Articulação Direta</h4>
+        <p>Comunicação permanente com o escritório durante todo o processo de financiamento.</p>
+      </div>
+      <div class="why-card">
+        <div class="card-icon">CT</div>
+        <h4>Confidencialidade Total</h4>
+        <p>Comunicação adaptada à relação advogado-cliente com sigilo absoluto.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Testimonial -->
+  <div class="testimonial">
+    <blockquote>
+      A parceria com a Letraperfeiçoada acelerou significativamente os nossos processos imobiliários. Os clientes ficam satisfeitos e as escrituras não atrasam.
+    </blockquote>
+    <cite>— Escritório Parceiro</cite>
+  </div>
+
+  <!-- Profile + Banks -->
+  <div class="profile-banks">
+    <div class="profile-card">
+      <div class="profile-name">Miguel<br/>Brito</div>
+      <div class="profile-role">Agente de Intermediação de Crédito</div>
+      <div class="profile-desc">
+        Especializado em parcerias com escritórios de advogados. O meu objetivo é simplificar o processo de financiamento e garantir que nunca atrasa os seus processos jurídicos.
+      </div>
+      <div class="profile-contact">
+        <div>infosuporteds@gmail.com</div>
+        <div>meuintermediario.com</div>
+      </div>
+    </div>
+    <div class="banks-section">
+      <div>
+        <div class="banks-label">Bancos Parceiros</div>
+        <div class="banks-grid">
+          <div class="bank-logo"><img src="public/banks/cgd.png" alt="CGD"/></div>
+          <div class="bank-logo"><img src="public/banks/santander.png" alt="Santander"/></div>
+          <div class="bank-logo"><img src="public/banks/bpi.png" alt="BPI"/></div>
+          <div class="bank-logo"><img src="public/banks/bankinter.png" alt="Bankinter"/></div>
+          <div class="bank-logo"><img src="public/banks/novobanco.png" alt="Novo Banco"/></div>
+          <div class="bank-logo"><img src="public/banks/bni.png" alt="BNI"/></div>
+          <div class="bank-logo"><img src="public/banks/bancoctt.png" alt="Banco CTT"/></div>
+          <div class="bank-logo"><img src="public/banks/uci.png" alt="UCI"/></div>
+          <div class="bank-logo"><img src="public/banks/abanca.png" alt="Abanca"/></div>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 8px; margin-top: 12px;">
+        <img src="public/ds-credito-logo.png" alt="DS Crédito" style="height: 24px; opacity: 0.5;"/>
+        <span style="font-size: 8px; color: #8d5e77; font-weight: 600; line-height: 1.3;">Rede DS Crédito<br/>170 agências · 1.400+ especialistas</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-banner">
+    <h3>Peça uma simulação gratuita hoje</h3>
+    <div class="cta-button">Agendar Reunião →</div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div><b>LETRA</b><span style="font-weight: 300;">PERFEIÇOADA</span> — Intermediário de Crédito</div>
+    <div>Registado no Banco de Portugal · © 2026 Paulo Brito</div>
+  </div>
+</div>
+
+</body>
+</html>

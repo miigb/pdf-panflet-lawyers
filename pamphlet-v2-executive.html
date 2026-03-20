@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>LETRAPERFEIÇOADA — Parceria Jurídica</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #f8f9ff;
+    color: #0d1c2d;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page { width: 210mm; min-height: 297mm; margin: 0 auto; position: relative; overflow: hidden; page-break-after: always; }
+
+  /* ═══ PAGE 1 ═══ */
+  .page-1 { background: #ffffff; display: flex; flex-direction: column; }
+
+  /* Nav */
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 36px;
+    background: white;
+  }
+  .logo-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .ds-logo-small {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .wordmark-block {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+  }
+  .wordmark { font-size: 15px; letter-spacing: -0.02em; color: #0d1c2d; }
+  .wordmark b { font-weight: 900; }
+  .wordmark span { font-weight: 300; }
+  .wordmark-sub {
+    font-size: 7.5px;
+    font-weight: 600;
+    color: #8d5e77;
+    letter-spacing: 0.04em;
+  }
+  .nav-links {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    font-size: 10px;
+    font-weight: 600;
+    color: #564149;
+  }
+  .nav-links a { text-decoration: none; color: inherit; }
+  .nav-links .active { color: #BA2979; border-bottom: 2px solid #BA2979; padding-bottom: 2px; }
+  .nav-cta {
+    background: #BA2979;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    font-size: 10px;
+    font-weight: 700;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+
+  /* Hero */
+  .hero-exec {
+    padding: 32px 36px 28px;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 32px;
+    align-items: center;
+  }
+  .hero-exec-left {}
+  .hero-label {
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #BA2979;
+    margin-bottom: 16px;
+  }
+  .hero-exec h1 {
+    font-size: 42px;
+    font-weight: 900;
+    line-height: 1.0;
+    letter-spacing: -0.04em;
+    color: #0d1c2d;
+    margin-bottom: 16px;
+  }
+  .hero-exec h1 .accent { color: #BA2979; }
+  .hero-exec .subtitle {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #564149;
+    max-width: 340px;
+    margin-bottom: 20px;
+  }
+  .hero-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  .btn-primary {
+    background: #BA2979;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 24px;
+    cursor: pointer;
+  }
+  .btn-secondary {
+    background: #eef4ff;
+    color: #0d1c2d;
+    border: none;
+    padding: 12px 24px;
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 24px;
+    cursor: pointer;
+  }
+
+  /* Stats card */
+  .stats-card {
+    background: white;
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 16px 48px rgba(13,28,45,0.06);
+    border: 1px solid rgba(186,41,121,0.08);
+  }
+  .stats-card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .stat-box {
+    background: #f8f9ff;
+    border-radius: 12px;
+    padding: 18px 16px;
+  }
+  .stat-box .value {
+    font-size: 32px;
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    color: #0d1c2d;
+  }
+  .stat-box .label {
+    font-size: 8px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #8d5e77;
+    margin-top: 4px;
+  }
+  .stat-box-featured {
+    grid-column: 1 / -1;
+    background: #BA2979;
+    color: white;
+    border-radius: 12px;
+    padding: 18px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .stat-box-featured .label {
+    font-size: 8px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    opacity: 0.8;
+  }
+  .stat-box-featured .value {
+    font-size: 26px;
+    font-weight: 900;
+    letter-spacing: -0.03em;
+  }
+
+  /* Distingue section */
+  .distingue-section {
+    padding: 24px 36px;
+    background: #f8f9ff;
+  }
+  .section-header-exec {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .section-title-exec {
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+  }
+  .accent-line { width: 48px; height: 3px; background: #BA2979; }
+
+  .distingue-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .distingue-card {
+    background: white;
+    border-radius: 12px;
+    padding: 24px 18px;
+    border-left: 3px solid #BA2979;
+    transition: transform 0.2s;
+  }
+  .distingue-card .icon-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(186,41,121,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+  .distingue-card h4 {
+    font-size: 12px;
+    font-weight: 800;
+    margin-bottom: 6px;
+    color: #0d1c2d;
+  }
+  .distingue-card p {
+    font-size: 9.5px;
+    color: #564149;
+    line-height: 1.5;
+    font-weight: 400;
+  }
+
+  /* Process section */
+  .process-section {
+    padding: 24px 36px;
+  }
+  .process-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr 1fr;
+    gap: 12px;
+    margin-top: 16px;
+  }
+  .process-card {
+    border-radius: 14px;
+    padding: 24px 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 140px;
+  }
+  .process-card.large {
+    background: white;
+    border: 1px solid #ecdfe6;
+  }
+  .process-card.featured {
+    background: #BA2979;
+    color: white;
+  }
+  .process-card.muted {
+    background: #eef4ff;
+  }
+  .process-number {
+    font-size: 48px;
+    font-weight: 900;
+    opacity: 0.12;
+    line-height: 1;
+  }
+  .process-card.featured .process-number { opacity: 0.25; color: white; }
+  .process-card h4 {
+    font-size: 14px;
+    font-weight: 800;
+  }
+  .process-card p {
+    font-size: 9px;
+    line-height: 1.5;
+    margin-top: 4px;
+    opacity: 0.75;
+  }
+
+  /* Impact section */
+  .impact-section {
+    background: #0d1c2d;
+    color: white;
+    padding: 28px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+  .impact-section::after {
+    content: '';
+    position: absolute;
+    right: -60px;
+    top: 0;
+    width: 40%;
+    height: 100%;
+    background: rgba(186,41,121,0.05);
+    transform: skewX(-12deg);
+  }
+  .impact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    position: relative;
+    z-index: 1;
+  }
+  .impact-left {}
+  .impact-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    margin-bottom: 16px;
+  }
+  .impact-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #BA2979;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  .impact-item h5 {
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+  .impact-item p {
+    font-size: 9.5px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.4;
+  }
+  .impact-quote {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 24px;
+    backdrop-filter: blur(8px);
+  }
+  .impact-quote blockquote {
+    font-size: 13px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.8);
+  }
+  .impact-quote cite {
+    display: block;
+    margin-top: 12px;
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #BA2979;
+    font-style: normal;
+  }
+
+  /* Contact section */
+  .contact-section {
+    padding: 24px 36px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex: 1;
+  }
+  .contact-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid #BA2979;
+    overflow: hidden;
+    flex-shrink: 0;
+    position: relative;
+  }
+  .contact-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .contact-photo .verified {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: #BA2979;
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 900;
+    border: 2px solid white;
+  }
+  .contact-info {
+    flex: 1;
+  }
+  .contact-info h3 {
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: -0.03em;
+  }
+  .contact-info .role {
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #BA2979;
+    margin-bottom: 6px;
+  }
+  .contact-info p {
+    font-size: 10px;
+    color: #564149;
+    line-height: 1.5;
+    max-width: 320px;
+  }
+  .contact-details {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+  }
+  .contact-detail {
+    background: #f8f9ff;
+    border-radius: 10px;
+    padding: 8px 14px;
+    font-size: 9px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .contact-cta-btn {
+    background: #BA2979;
+    color: white;
+    border: none;
+    padding: 16px 32px;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: 28px;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  /* Banks bar */
+  .banks-bar {
+    padding: 16px 36px;
+    background: #f8f9ff;
+    border-top: 1px solid #ecdfe6;
+  }
+  .banks-bar-label {
+    font-size: 8px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #8d5e77;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  .banks-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .banks-logos img {
+    height: 22px;
+  }
+
+  /* Footer exec */
+  .footer-exec {
+    padding: 14px 36px;
+    border-top: 1px solid #ecdfe6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 7.5px;
+    color: #8d5e77;
+  }
+  .footer-exec a { color: #BA2979; text-decoration: none; font-weight: 600; }
+
+  @media print {
+    body { background: white; }
+    .page { box-shadow: none; margin: 0; }
+  }
+  @media screen {
+    body { background: #e0e0e0; padding: 40px 0; }
+    .page { box-shadow: 0 8px 40px rgba(0,0,0,0.15); margin-bottom: 40px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ SINGLE PAGE EXECUTIVE PAMPHLET ═══════════ -->
+<div class="page page-1">
+
+  <!-- Nav -->
+  <div class="nav">
+    <div class="logo-group">
+      <img src="public/ds-credito-logo.png" alt="DS Crédito" class="ds-logo-small"/>
+      <div class="wordmark-block">
+        <div class="wordmark"><b>LETRA</b><span>PERFEIÇOADA</span></div>
+        <div class="wordmark-sub">Agente DS Crédito</div>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a href="https://meuintermediario.com" class="active">Soluções</a>
+      <a href="https://meuintermediario.com">Vantagens</a>
+      <a href="https://meuintermediario.com">Contacto</a>
+      <button class="nav-cta">Pedir Proposta</button>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <div class="hero-exec">
+    <div class="hero-exec-left">
+      <div class="hero-label">Relatório Executivo 2026</div>
+      <h1>Soluções Estratégicas de <span class="accent">Crédito</span></h1>
+      <div class="subtitle">
+        Capacitamos escritórios de advogados com uma estrutura financeira sólida e transparente, otimizando cada etapa do processo de financiamento dos seus clientes.
+      </div>
+      <div class="hero-buttons">
+        <button class="btn-primary">Consultar Agora</button>
+        <button class="btn-secondary">Saiba Mais</button>
+      </div>
+    </div>
+    <div class="stats-card">
+      <div class="stats-card-grid">
+        <div class="stat-box">
+          <div class="value">92%</div>
+          <div class="label">Taxa de Aprovação</div>
+        </div>
+        <div class="stat-box">
+          <div class="value">5 Dias</div>
+          <div class="label">Tempo Médio Resposta</div>
+        </div>
+        <div class="stat-box-featured">
+          <div>
+            <div class="label">Intermediação Certificada</div>
+            <div class="value">22+ Anos</div>
+          </div>
+          <div style="font-size: 28px; opacity: 0.3;">✦</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- O Que Nos Distingue -->
+  <div class="distingue-section">
+    <div class="section-header-exec">
+      <div class="section-title-exec">O Que Nos Distingue</div>
+      <div class="accent-line"></div>
+    </div>
+    <div class="distingue-grid">
+      <div class="distingue-card">
+        <div class="icon-circle">⚖</div>
+        <h4>Independência Total</h4>
+        <p>Não estamos vinculados a uma única instituição, negociamos as melhores condições em todo o mercado.</p>
+      </div>
+      <div class="distingue-card">
+        <div class="icon-circle">§</div>
+        <h4>Expertise Jurídica</h4>
+        <p>Equipa dedicada que entende a linguagem dos advogados e os tempos dos processos legais.</p>
+      </div>
+      <div class="distingue-card">
+        <div class="icon-circle">★</div>
+        <h4>Acompanhamento VIP</h4>
+        <p>Gestor dedicado que conhece cada processo pelo nome, não por um número de referência.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Process -->
+  <div class="process-section">
+    <div class="section-title-exec" style="margin-bottom: 4px;">Processo de Agilização</div>
+    <div class="accent-line" style="margin-bottom: 0;"></div>
+    <div class="process-grid">
+      <div class="process-card large">
+        <div class="process-number">01</div>
+        <div>
+          <h4>Diagnóstico Expresso</h4>
+          <p>Análise 360º da viabilidade financeira em menos de 24 horas. Basta encaminhar o contacto.</p>
+        </div>
+      </div>
+      <div class="process-card featured">
+        <div class="process-number">02</div>
+        <div>
+          <h4>Negociação</h4>
+          <p>Ativamos contactos diretos nos decisores bancários para as melhores condições.</p>
+        </div>
+      </div>
+      <div class="process-card muted">
+        <div class="process-number">03</div>
+        <div>
+          <h4>Formalização</h4>
+          <p>Tratamos de toda a documentação até à escritura, em articulação com o escritório.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Impact -->
+  <div class="impact-section">
+    <div class="impact-grid">
+      <div class="impact-left">
+        <div class="section-title-exec" style="color: white; margin-bottom: 16px;">Impacto no Seu Negócio</div>
+        <div class="impact-item">
+          <div class="impact-icon">↗</div>
+          <div>
+            <h5>Processos Mais Rápidos</h5>
+            <p>Financiamento que não atrasa escrituras nem processos judiciais.</p>
+          </div>
+        </div>
+        <div class="impact-item">
+          <div class="impact-icon">€</div>
+          <div>
+            <h5>Comissão de Referência</h5>
+            <p>Compensação por cada processo concretizado com sucesso.</p>
+          </div>
+        </div>
+        <div class="impact-item">
+          <div class="impact-icon">✓</div>
+          <div>
+            <h5>Zero Conflito de Interesses</h5>
+            <p>Parceiro discreto e profissional, alinhado com a deontologia.</p>
+          </div>
+        </div>
+      </div>
+      <div class="impact-quote">
+        <blockquote>
+          A parceria com a Letraperfeiçoada acelerou significativamente os nossos processos imobiliários. A agilidade no financiamento permitiu-nos fechar negócios que de outra forma seriam impossíveis.
+        </blockquote>
+        <cite>— Escritório Parceiro, Setúbal</cite>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact -->
+  <div class="contact-section">
+    <div class="contact-info">
+      <h3>Paulo Brito</h3>
+      <div class="role">Agente de Intermediação de Crédito · Especialista: Advogados</div>
+      <p>Pronto para elevar a estratégia financeira dos seus clientes. Sem custos, sem compromisso.</p>
+      <div class="contact-details">
+        <div class="contact-detail">✉ infosuporteds@gmail.com</div>
+        <div class="contact-detail">🌐 meuintermediario.com</div>
+      </div>
+    </div>
+    <button class="contact-cta-btn">Marcar Reunião</button>
+  </div>
+
+  <!-- Banks -->
+  <div class="banks-bar">
+    <div class="banks-bar-label">Bancos Parceiros</div>
+    <div class="banks-logos">
+      <img src="public/banks/cgd.png" alt="CGD"/>
+      <img src="public/banks/santander.png" alt="Santander"/>
+      <img src="public/banks/bpi.png" alt="BPI"/>
+      <img src="public/banks/bankinter.png" alt="Bankinter"/>
+      <img src="public/banks/novobanco.png" alt="Novo Banco"/>
+      <img src="public/banks/bni.png" alt="BNI"/>
+      <img src="public/banks/bancoctt.png" alt="Banco CTT"/>
+      <img src="public/banks/uci.png" alt="UCI"/>
+      <img src="public/banks/abanca.png" alt="Abanca"/>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer-exec">
+    <div><b>LETRA</b><span style="font-weight: 300;">PERFEIÇOADA</span> · Agente DS Crédito · Intermediário de Crédito Registado no Banco de Portugal</div>
+    <div>© 2026 Paulo Brito · <a href="https://meuintermediario.com">meuintermediario.com</a></div>
+  </div>
+
+</div>
+
+</body>
+</html>

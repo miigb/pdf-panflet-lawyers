@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>LETRAPERFEIÇOADA — Corporate Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { width: 210mm; min-height: 297mm; margin: 0 auto; overflow: hidden; page-break-after: always; background: #fafafa; display: flex; flex-direction: column; }
+
+  .logo-group { display: flex; align-items: center; gap: 10px; }
+  .ds-logo-small { height: 26px; width: 26px; border-radius: 50%; object-fit: cover; }
+  .wordmark-block { display: flex; flex-direction: column; line-height: 1.15; }
+  .wordmark { font-size: 13px; letter-spacing: -0.02em; }
+  .wordmark b { font-weight: 900; }
+  .wordmark span { font-weight: 300; }
+  .wordmark-sub { font-size: 6.5px; font-weight: 600; color: #8d5e77; letter-spacing: 0.04em; }
+
+  /* Header with thick top border */
+  .header {
+    border-top: 5px solid #0d1c2d;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 36px;
+  }
+  .header-links { display: flex; gap: 18px; align-items: center; }
+  .header-links a { font-size: 9px; font-weight: 600; color: #8d5e77; text-decoration: none; }
+  .header-links a.active { color: #BA2979; }
+  .header-cta {
+    background: #0d1c2d; color: white; border: none; padding: 8px 20px;
+    font-size: 9px; font-weight: 700; border-radius: 4px; cursor: pointer;
+  }
+
+  /* HERO — Corporate with big serif-ish headline */
+  .corp-hero {
+    padding: 32px 36px;
+    display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 32px;
+    align-items: start;
+  }
+  .corp-hero-left .kicker {
+    font-size: 7px; font-weight: 800; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #BA2979;
+    background: rgba(186,41,121,0.06); display: inline-block;
+    padding: 4px 10px; border-radius: 3px; margin-bottom: 18px;
+  }
+  .corp-hero h1 {
+    font-size: 46px; font-weight: 900; line-height: 1.0;
+    letter-spacing: -0.045em; color: #0d1c2d; margin-bottom: 16px;
+  }
+  .corp-hero h1 .thin { font-weight: 300; font-style: italic; }
+  .corp-hero .desc {
+    font-size: 12px; font-weight: 400; color: #564149;
+    line-height: 1.7; max-width: 380px; margin-bottom: 20px;
+  }
+  /* Key metrics inline */
+  .corp-metrics { display: flex; gap: 16px; }
+  .corp-metric {
+    background: white; border: 1px solid #eee; border-radius: 10px;
+    padding: 14px 18px; text-align: center; min-width: 90px;
+  }
+  .corp-metric .val { font-size: 22px; font-weight: 900; color: #BA2979; letter-spacing: -0.03em; }
+  .corp-metric .lbl { font-size: 7px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #8d5e77; margin-top: 2px; }
+
+  /* Right: primary objective card */
+  .objective-card {
+    background: white; border: 1px solid #eee; border-radius: 12px;
+    padding: 24px; border-left: 4px solid #BA2979;
+  }
+  .objective-card .oc-title { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: #BA2979; margin-bottom: 10px; }
+  .objective-card p { font-size: 10px; color: #564149; line-height: 1.6; }
+  .objective-card ul { margin-top: 10px; padding-left: 16px; }
+  .objective-card li { font-size: 9.5px; color: #564149; line-height: 1.6; margin-bottom: 4px; }
+
+  /* WORKFLOW SECTION */
+  .workflow {
+    padding: 24px 36px;
+    background: white; border-top: 1px solid #eee; border-bottom: 1px solid #eee;
+  }
+  .wf-title { font-size: 18px; font-weight: 900; letter-spacing: -0.03em; color: #0d1c2d; margin-bottom: 16px; }
+  .wf-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .wf-step {
+    position: relative; padding: 18px 14px;
+    border: 1px solid #eee; border-radius: 10px;
+  }
+  .wf-step .wf-num {
+    font-size: 10px; font-weight: 800; color: white; background: #BA2979;
+    width: 22px; height: 22px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 10px;
+  }
+  .wf-step h4 { font-size: 11px; font-weight: 800; color: #0d1c2d; margin-bottom: 4px; }
+  .wf-step p { font-size: 8.5px; color: #8d5e77; line-height: 1.5; }
+  /* Arrow connector */
+  .wf-step::after {
+    content: '→'; position: absolute; right: -12px; top: 50%;
+    transform: translateY(-50%); font-size: 14px; color: #ddd;
+  }
+  .wf-step:last-child::after { display: none; }
+
+  /* INSTITUTIONAL ADVANTAGE */
+  .advantage {
+    padding: 24px 36px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  }
+  .adv-left {}
+  .adv-title { font-size: 20px; font-weight: 900; letter-spacing: -0.03em; color: #0d1c2d; line-height: 1.15; margin-bottom: 14px; }
+  .adv-text { font-size: 10.5px; color: #564149; line-height: 1.65; margin-bottom: 16px; }
+  .adv-features {}
+  .adv-feature {
+    display: flex; gap: 8px; align-items: flex-start; margin-bottom: 10px;
+    padding: 10px 14px; background: white; border: 1px solid #eee; border-radius: 8px;
+  }
+  .adv-feature .af-icon {
+    width: 8px; height: 8px; border-radius: 50%; background: #BA2979;
+    flex-shrink: 0; margin-top: 4px;
+  }
+  .adv-feature .af-text { font-size: 10px; font-weight: 600; color: #0d1c2d; }
+  .adv-feature .af-sub { font-size: 8.5px; color: #8d5e77; margin-top: 1px; }
+
+  /* Right: Performance card */
+  .perf-card {
+    background: #0d1c2d; color: white; border-radius: 14px;
+    padding: 28px 24px; display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .perf-card .perf-title { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.5; margin-bottom: 16px; }
+  .perf-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .perf-stat .val { font-size: 28px; font-weight: 900; color: #e84393; }
+  .perf-stat .lbl { font-size: 7.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.4); margin-top: 2px; }
+  .perf-quote {
+    margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08);
+    font-size: 11px; font-style: italic; color: rgba(255,255,255,0.55); line-height: 1.55;
+  }
+  .perf-quote cite {
+    display: block; margin-top: 8px; font-style: normal;
+    font-size: 8px; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #e84393;
+  }
+
+  /* PROFILE SECTION */
+  .profile-section {
+    padding: 20px 36px;
+    display: grid; grid-template-columns: auto 1fr auto; gap: 20px;
+    align-items: center; margin-top: auto;
+    background: white; border-top: 1px solid #eee;
+  }
+  .profile-img {
+    width: 72px; height: 72px; border-radius: 12px;
+    overflow: hidden; border: 2px solid #BA2979;
+  }
+  .profile-img img { width: 100%; height: 100%; object-fit: cover; }
+  .profile-info h3 { font-size: 18px; font-weight: 900; letter-spacing: -0.03em; color: #0d1c2d; }
+  .profile-info .role { font-size: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #BA2979; margin-top: 2px; }
+  .profile-info .desc { font-size: 9.5px; color: #8d5e77; margin-top: 6px; line-height: 1.5; max-width: 320px; }
+  .profile-contacts { display: flex; gap: 8px; margin-top: 8px; }
+  .profile-contact-pill { font-size: 8px; font-weight: 600; color: #564149; background: #f5f0f3; padding: 5px 10px; border-radius: 6px; }
+
+  .profile-cta {
+    background: #BA2979; color: white; border: none;
+    padding: 14px 28px; border-radius: 8px;
+    font-size: 11px; font-weight: 800; cursor: pointer;
+    letter-spacing: 0.02em;
+  }
+
+  /* Banks + Footer */
+  .corp-footer {
+    padding: 14px 36px;
+    border-top: 1px solid #eee;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .corp-footer-logos { display: flex; gap: 10px; align-items: center; }
+  .corp-footer-logos img { height: 20px; }
+  .corp-footer-text { font-size: 7px; color: #8d5e77; text-align: right; }
+
+  @media print { body { background: white; } .page { box-shadow: none; margin: 0; } }
+  @media screen { body { background: #e0e0e0; padding: 40px 0; } .page { box-shadow: 0 8px 40px rgba(0,0,0,0.15); margin-bottom: 40px; } }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="logo-group">
+      <img src="public/ds-credito-logo.png" alt="DS Crédito" class="ds-logo-small"/>
+      <div class="wordmark-block">
+        <div class="wordmark"><b>LETRA</b><span>PERFEIÇOADA</span></div>
+        <div class="wordmark-sub">Agente DS Crédito</div>
+      </div>
+    </div>
+    <div class="header-links">
+      <a href="https://meuintermediario.com" class="active">Visão Geral</a>
+      <a href="https://meuintermediario.com">Soluções</a>
+      <a href="https://meuintermediario.com">Conformidade</a>
+      <button class="header-cta">Consultar</button>
+    </div>
+  </div>
+
+  <div class="corp-hero">
+    <div class="corp-hero-left">
+      <div class="kicker">Portfólio Corporativo Vol. 01</div>
+      <h1>Precisão em<br/>Crédito <span class="thin">Estruturado.</span></h1>
+      <div class="desc">Facilitamos soluções de crédito para os clientes do seu escritório, articulando com rigor financeiro e total conformidade regulatória.</div>
+      <div class="corp-metrics">
+        <div class="corp-metric"><div class="val">92%</div><div class="lbl">Aprovação</div></div>
+        <div class="corp-metric"><div class="val">5 dias</div><div class="lbl">Tempo Médio</div></div>
+        <div class="corp-metric"><div class="val">22+</div><div class="lbl">Anos Rede</div></div>
+      </div>
+    </div>
+    <div>
+      <div class="objective-card">
+        <div class="oc-title">Objetivo da Parceria</div>
+        <p>Servir como extensão financeira do seu escritório, garantindo que:</p>
+        <ul>
+          <li>O financiamento nunca atrasa escrituras</li>
+          <li>Os clientes recebem orientação financeira especializada</li>
+          <li>Reestruturações são tratadas com acompanhamento profissional</li>
+          <li>Feedback regular sobre cada processo</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="workflow">
+    <div class="wf-title">Processo de Agilização</div>
+    <div class="wf-grid">
+      <div class="wf-step">
+        <div class="wf-num">1</div>
+        <h4>Referenciação</h4>
+        <p>Encaminhe o contacto — iniciamos de imediato</p>
+      </div>
+      <div class="wf-step">
+        <div class="wf-num">2</div>
+        <h4>Diagnóstico</h4>
+        <p>Análise 360º em menos de 24 horas</p>
+      </div>
+      <div class="wf-step">
+        <div class="wf-num">3</div>
+        <h4>Negociação</h4>
+        <p>Contactos diretos nos decisores bancários</p>
+      </div>
+      <div class="wf-step">
+        <div class="wf-num">4</div>
+        <h4>Formalização</h4>
+        <p>Burocracia documental até à escritura</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="advantage">
+    <div class="adv-left">
+      <div class="adv-title">A Vantagem<br/>Institucional.</div>
+      <div class="adv-text">A nossa metodologia baseia-se em transparência, agilidade e rigor documental. Não intermediamos crédito — arquitectamos soluções financeiras.</div>
+      <div class="adv-features">
+        <div class="adv-feature">
+          <div class="af-icon"></div>
+          <div><div class="af-text">Registo no Banco de Portugal</div><div class="af-sub">Total conformidade regulatória</div></div>
+        </div>
+        <div class="adv-feature">
+          <div class="af-icon"></div>
+          <div><div class="af-text">Experiência Jurídica</div><div class="af-sub">Entendemos a linguagem dos advogados</div></div>
+        </div>
+        <div class="adv-feature">
+          <div class="af-icon"></div>
+          <div><div class="af-text">Confidencialidade Absoluta</div><div class="af-sub">Comunicação adaptada à relação advogado-cliente</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="perf-card">
+      <div class="perf-title">Impacto e Resultados 2026</div>
+      <div class="perf-stats">
+        <div class="perf-stat"><div class="val">92%</div><div class="lbl">Taxa Aprovação</div></div>
+        <div class="perf-stat"><div class="val">5 dias</div><div class="lbl">Tempo Médio</div></div>
+        <div class="perf-stat"><div class="val">Maioria</div><div class="lbl">Bancos Parceiros</div></div>
+        <div class="perf-stat"><div class="val">2.000+</div><div class="lbl">Processos</div></div>
+      </div>
+      <div class="perf-quote">
+        "A parceria com a Letraperfeiçoada acelerou significativamente os nossos processos imobiliários."
+        <cite>— Escritório Parceiro</cite>
+      </div>
+    </div>
+  </div>
+
+  <div class="profile-section">
+    <div class="profile-info">
+      <h3>Paulo Brito</h3>
+      <div class="role">Agente de Intermediação de Crédito</div>
+      <div class="desc">Especialista em parcerias com escritórios de advogados. Foco em agilizar processos e garantir as melhores condições de financiamento.</div>
+      <div class="profile-contacts">
+        <div class="profile-contact-pill">infosuporteds@gmail.com</div>
+        <div class="profile-contact-pill">meuintermediario.com</div>
+      </div>
+    </div>
+    <button class="profile-cta">Agendar Reunião →</button>
+  </div>
+
+  <div class="corp-footer">
+    <div class="corp-footer-logos">
+      <img src="public/banks/cgd.png" alt="CGD"/>
+      <img src="public/banks/santander.png" alt="Santander"/>
+      <img src="public/banks/bpi.png" alt="BPI"/>
+      <img src="public/banks/bankinter.png" alt="Bankinter"/>
+      <img src="public/banks/novobanco.png" alt="NB"/>
+      <img src="public/banks/bni.png" alt="BNI"/>
+      <img src="public/banks/uci.png" alt="UCI"/>
+      <img src="public/banks/abanca.png" alt="Abanca"/>
+    </div>
+    <div class="corp-footer-text"><b style="font-weight:800;">LETRA</b><span style="font-weight:300;">PERFEIÇOADA</span> · Registado no Banco de Portugal · © 2026</div>
+  </div>
+</div>
+</body>
+</html>

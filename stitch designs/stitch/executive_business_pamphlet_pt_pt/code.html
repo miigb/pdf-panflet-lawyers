@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-PT"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary": "#415062",
+              "on-secondary": "#ffffff",
+              "on-tertiary": "#ffffff",
+              "primary-fixed-dim": "#ffb0d0",
+              "secondary-container": "#ded1fb",
+              "outline": "#8a7079",
+              "tertiary-container": "#59687b",
+              "on-error-container": "#93000a",
+              "primary-fixed": "#ffd8e5",
+              "on-primary-container": "#ffdde8",
+              "error-container": "#ffdad6",
+              "surface-bright": "#f8f9ff",
+              "secondary-fixed": "#e9ddff",
+              "tertiary-fixed": "#d4e4fa",
+              "inverse-surface": "#233143",
+              "surface": "#f8f9ff",
+              "on-primary-fixed-variant": "#8c0057",
+              "tertiary-fixed-dim": "#b9c8de",
+              "on-tertiary-fixed-variant": "#39485a",
+              "surface-dim": "#ccdbf2",
+              "primary-container": "#ba2979",
+              "on-primary-fixed": "#3d0023",
+              "surface-variant": "#d4e4fa",
+              "inverse-primary": "#ffb0d0",
+              "inverse-on-surface": "#e9f1ff",
+              "on-tertiary-fixed": "#0d1c2d",
+              "surface-container-highest": "#d4e4fa",
+              "on-background": "#0d1c2d",
+              "surface-container-low": "#eef4ff",
+              "background": "#f8f9ff",
+              "surface-tint": "#af1e70",
+              "on-secondary-fixed": "#1f1636",
+              "on-secondary-fixed-variant": "#4b4164",
+              "on-error": "#ffffff",
+              "error": "#ba1a1a",
+              "on-surface-variant": "#564149",
+              "outline-variant": "#ddbfc9",
+              "surface-container-high": "#dbe9ff",
+              "on-secondary-container": "#62587c",
+              "surface-container": "#e5efff",
+              "secondary": "#63597d",
+              "on-tertiary-container": "#d8e7fe",
+              "on-primary": "#ffffff",
+              "on-surface": "#0d1c2d",
+              "primary": "#9a0160",
+              "surface-container-lowest": "#ffffff",
+              "secondary-fixed-dim": "#cdc0ea"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-container selection:text-white">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-lg shadow-[0_8px_32px_rgba(22,13,45,0.04)]">
+<div class="flex justify-between items-center max-w-7xl mx-auto px-8 py-4">
+<div class="text-2xl font-black tracking-tighter text-[#160D2D] dark:text-slate-50">DS CRÉDITO</div>
+<div class="hidden md:flex items-center space-x-8 font-['Inter'] font-medium tracking-tight">
+<a class="text-[#BA2979] dark:text-[#BA2979] border-b-2 border-[#BA2979] pb-1" href="#">Soluções</a>
+<a class="text-[#160D2D] dark:text-slate-300 hover:text-[#BA2979] transition-colors" href="#">Vantagens</a>
+<a class="text-[#160D2D] dark:text-slate-300 hover:text-[#BA2979] transition-colors" href="#">Simulador</a>
+<a class="text-[#160D2D] dark:text-slate-300 hover:text-[#BA2979] transition-colors" href="#">Contactos</a>
+</div>
+<button class="bg-primary hover:bg-primary-container text-white px-6 py-2.5 rounded-full font-semibold transition-all duration-300 scale-95 active:opacity-80">
+                Pedir Proposta
+            </button>
+</div>
+<div class="bg-slate-100/50 dark:bg-slate-800/50 h-[1px] w-full"></div>
+</nav>
+<main class="pt-24 pb-20">
+<!-- Hero Section: Authority & Trust -->
+<section class="max-w-7xl mx-auto px-8 py-20 lg:py-32">
+<div class="grid lg:grid-cols-2 gap-16 items-center">
+<div class="space-y-8">
+<span class="inline-block px-4 py-1.5 bg-secondary-container text-on-secondary-container text-xs font-bold tracking-widest rounded-full uppercase">Relatório Executivo 2024</span>
+<h1 class="text-6xl lg:text-7xl font-black text-on-surface leading-[1.1] tracking-tighter">
+                        Soluções Estratégicas <br/>de <span class="text-primary">Crédito</span>
+</h1>
+<p class="text-xl text-on-surface-variant max-w-lg leading-relaxed font-light">
+                        Capacitamos empresas e particulares com uma estrutura financeira sólida e transparente, otimizando cada etapa do processo de financiamento.
+                    </p>
+<div class="flex gap-4">
+<button class="bg-primary text-white px-8 py-4 rounded-full font-bold shadow-lg hover:opacity-90 transition-all">Download do PDF</button>
+<button class="bg-surface-container-high text-on-surface px-8 py-4 rounded-full font-bold hover:bg-surface-container-highest transition-all">Saiba Mais</button>
+</div>
+</div>
+<div class="relative">
+<div class="absolute -top-12 -left-12 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
+<div class="relative bg-surface-container-lowest rounded-xl p-8 shadow-[0_32px_64px_-12px_rgba(22,13,45,0.08)] border border-outline-variant/15">
+<div class="grid grid-cols-2 gap-8">
+<div class="p-6 rounded-lg bg-surface-container-low">
+<span class="material-symbols-outlined text-primary mb-4 text-4xl" data-icon="analytics">analytics</span>
+<h3 class="text-4xl font-black text-on-surface tracking-tighter">92%</h3>
+<p class="text-sm text-on-surface-variant font-medium uppercase tracking-wider">Taxa de Aprovação</p>
+</div>
+<div class="p-6 rounded-lg bg-surface-container-low">
+<span class="material-symbols-outlined text-primary mb-4 text-4xl" data-icon="schedule">schedule</span>
+<h3 class="text-4xl font-black text-on-surface tracking-tighter">5 Dias</h3>
+<p class="text-sm text-on-surface-variant font-medium uppercase tracking-wider">Tempo Médio Resposta</p>
+</div>
+<div class="col-span-2 p-6 rounded-lg bg-primary text-white">
+<div class="flex items-center justify-between">
+<div>
+<p class="text-sm opacity-80 uppercase font-bold tracking-widest">Capital Gerido</p>
+<h3 class="text-3xl font-black tracking-tighter">€1.2B+</h3>
+</div>
+<span class="material-symbols-outlined text-5xl opacity-40" data-icon="verified_user">verified_user</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- O Que Nos Distingue -->
+<section class="bg-surface-container-low py-24">
+<div class="max-w-7xl mx-auto px-8">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+<div class="max-w-2xl">
+<h2 class="text-4xl font-black text-on-surface tracking-tighter mb-4 uppercase">O Que Nos Distingue</h2>
+<p class="text-lg text-on-surface-variant font-light">A nossa abordagem não é transacional; é consultiva. Fundamentamos a nossa autoridade em três pilares fundamentais.</p>
+</div>
+<div class="h-1 w-24 bg-primary mb-2"></div>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="bg-surface-container-lowest p-10 rounded-xl border-l-4 border-primary transition-transform hover:-translate-y-2 duration-300">
+<span class="material-symbols-outlined text-primary mb-6 text-3xl" data-icon="account_balance">account_balance</span>
+<h4 class="text-xl font-bold text-on-surface mb-4">Independência Total</h4>
+<p class="text-on-surface-variant leading-relaxed">Não estamos vinculados a uma única instituição, o que nos permite negociar as melhores condições em todo o mercado bancário.</p>
+</div>
+<div class="bg-surface-container-lowest p-10 rounded-xl transition-transform hover:-translate-y-2 duration-300">
+<span class="material-symbols-outlined text-primary mb-6 text-3xl" data-icon="psychology">psychology</span>
+<h4 class="text-xl font-bold text-on-surface mb-4">Expertise Jurídica</h4>
+<p class="text-on-surface-variant leading-relaxed">Uma equipa dedicada a analisar as letras pequenas, garantindo que o seu contrato é seguro e livre de custos ocultos.</p>
+</div>
+<div class="bg-surface-container-lowest p-10 rounded-xl transition-transform hover:-translate-y-2 duration-300">
+<span class="material-symbols-outlined text-primary mb-6 text-3xl" data-icon="handshake">handshake</span>
+<h4 class="text-xl font-bold text-on-surface mb-4">Acompanhamento VIP</h4>
+<p class="text-on-surface-variant leading-relaxed">Gestor de conta dedicado que conhece o seu negócio pelo nome, não por um número de processo.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Processo de Agilização (Bento Grid Style) -->
+<section class="py-24">
+<div class="max-w-7xl mx-auto px-8">
+<h2 class="text-4xl font-black text-on-surface tracking-tighter mb-16 text-center uppercase">Processo de Agilização</h2>
+<div class="grid md:grid-cols-4 gap-6">
+<div class="md:col-span-2 bg-white p-8 rounded-xl shadow-sm border border-outline-variant/10 flex flex-col justify-between h-64">
+<span class="text-6xl font-black text-surface-container-highest">01</span>
+<div>
+<h4 class="text-xl font-bold text-on-surface">Diagnóstico Expresso</h4>
+<p class="text-on-surface-variant text-sm mt-2">Análise 360º da saúde financeira e objetivos em menos de 24h.</p>
+</div>
+</div>
+<div class="bg-primary text-white p-8 rounded-xl shadow-sm flex flex-col justify-between h-64">
+<span class="material-symbols-outlined text-4xl" data-icon="rocket_launch">rocket_launch</span>
+<div>
+<h4 class="text-xl font-bold">02 Negociação</h4>
+<p class="text-white/80 text-sm mt-2">Ativamos a nossa rede de contactos diretos nos decisores bancários.</p>
+</div>
+</div>
+<div class="bg-surface-container-high p-8 rounded-xl flex flex-col justify-between h-64">
+<span class="text-6xl font-black text-on-surface/10">03</span>
+<div>
+<h4 class="text-xl font-bold text-on-surface">Formalização</h4>
+<p class="text-on-surface-variant text-sm mt-2">Tratamos de toda a burocracia documental por si.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Impacto no Seu Negócio -->
+<section class="bg-on-surface py-24 text-white overflow-hidden relative">
+<div class="absolute right-0 top-0 w-1/2 h-full bg-primary/5 -skew-x-12 transform translate-x-1/4"></div>
+<div class="max-w-7xl mx-auto px-8 relative z-10">
+<div class="grid lg:grid-cols-2 gap-16 items-center">
+<div>
+<h2 class="text-4xl font-black tracking-tighter mb-8 uppercase">Impacto no Seu Negócio</h2>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-white" data-icon="trending_up">trending_up</span>
+</div>
+<div>
+<h5 class="text-xl font-bold">Redução de Custos Financeiros</h5>
+<p class="text-slate-400 mt-1">Otimização média de 15% nos spreads e taxas processuais.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-white" data-icon="speed">speed</span>
+</div>
+<div>
+<h5 class="text-xl font-bold">Velocidade de Execução</h5>
+<p class="text-slate-400 mt-1">Libertação de capital em tempo recorde para oportunidades de mercado.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-white" data-icon="security">security</span>
+</div>
+<div>
+<h5 class="text-xl font-bold">Mitigação de Risco</h5>
+<p class="text-slate-400 mt-1">Estruturas de crédito desenhadas para suportar flutuações de mercado.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10">
+<p class="text-2xl font-light italic leading-relaxed text-slate-200">
+                            "A DS CRÉDITO foi fundamental na nossa expansão para o mercado europeu. A agilidade com que conseguiram as linhas de crédito permitiu-nos fechar negócios que de outra forma seriam impossíveis."
+                        </p>
+<div class="mt-8 flex items-center gap-4">
+<div class="w-14 h-14 rounded-full bg-slate-700 overflow-hidden">
+<img alt="CEO Portait" class="w-full h-full object-cover" data-alt="Corporate executive man portrait professional" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbRUfV98aCGL_vZuBpX-y6zl8g1ItitVLCV4WgmwvjCSNrQoDJuFE-clHa42cxr8r73SFEjRI0OGSSr2NJyhrZB37deG1W9noHmE1GRsrEqdH_fHbZyvFS91Ar6d78QwJCX6QpX8gTVo6F20F8jJFG7PNvbRO5LbkpA1rNtoQe1FvoLaPJRp_SvRAbGiMq_ILpNukOzFpVhOiPUvKR6rTgeKVG5TYaCqL_GZ4GWFr92ZvQuofRC0m8RYuVfH-ax6vRsI_XypC14QOZ"/>
+</div>
+<div>
+<p class="font-bold">João Silveira</p>
+<p class="text-sm text-primary uppercase tracking-widest font-bold">CEO, TechVantage Portugal</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-24 max-w-7xl mx-auto px-8">
+<div class="bg-surface-container-lowest rounded-3xl p-12 shadow-[0_48px_96px_-24px_rgba(22,13,45,0.12)] border border-outline-variant/10">
+<div class="flex flex-col md:flex-row items-center gap-12">
+<div class="relative">
+<div class="w-48 h-48 rounded-full border-4 border-primary p-1">
+<img alt="Miguel Brito" class="w-full h-full object-cover rounded-full" data-alt="Professional business man portrait suit" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqxjisgO4-Cg4IdKB_VDg0eJ32oAjS0axP3qI8foFxa8TlRkJUxPta1gys8L_vC1n-O9XhDGUrWYfraWTi7ts-tJQCDCQtce6aoCFb3L9BUDId-yZMTj5n6yKD1RiouX8iptCw37OQc-OijkudYF6a6jD-eI90vozVs-U4dWT4ZrtwVT6hK2zw2sps4zpv7kiDB6kYWBd6eOG-XZx0it9Onjd8VUuFKNlHtWdQ9dvniq6yA5d2v58smWPfqGlWqSfpK65KKamH8AWj"/>
+</div>
+<div class="absolute -bottom-2 -right-2 bg-primary text-white p-2 rounded-full shadow-lg">
+<span class="material-symbols-outlined" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div class="flex-1 text-center md:text-left">
+<h3 class="text-3xl font-black text-on-surface tracking-tighter">Miguel Brito</h3>
+<p class="text-primary font-bold uppercase tracking-widest text-sm mb-4">Diretor de Relações Institucionais</p>
+<p class="text-on-surface-variant max-w-xl mb-8 leading-relaxed">Pronto para elevar a estratégia financeira da sua organização. Vamos agendar uma reunião exploratória de 15 minutos?</p>
+<div class="grid md:grid-cols-2 gap-4">
+<div class="flex items-center gap-3 p-4 bg-surface-container-low rounded-xl">
+<span class="material-symbols-outlined text-primary" data-icon="mail">mail</span>
+<span class="font-medium text-sm">miguel.brito@dscredito.pt</span>
+</div>
+<div class="flex items-center gap-3 p-4 bg-surface-container-low rounded-xl">
+<span class="material-symbols-outlined text-primary" data-icon="call">call</span>
+<span class="font-medium text-sm">+351 912 345 678</span>
+</div>
+</div>
+</div>
+<div class="shrink-0">
+<button class="bg-primary text-white w-full md:w-auto px-12 py-6 rounded-full font-black uppercase tracking-widest shadow-xl hover:shadow-primary/20 transition-all scale-100 active:scale-95">
+                            Marcar Reunião
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#160D2D] dark:bg-black text-slate-400 w-full border-t border-white/10">
+<div class="flex flex-col items-center py-12 px-8 space-y-8 max-w-7xl mx-auto">
+<div class="text-xl font-bold text-white tracking-widest">DS CRÉDITO</div>
+<div class="flex flex-wrap justify-center gap-8 font-['Inter'] text-sm uppercase tracking-widest">
+<a class="hover:text-white transition-colors" href="#">Política de Privacidade</a>
+<a class="hover:text-white transition-colors" href="#">Termos e Condições</a>
+<a class="hover:text-white transition-colors" href="#">Livro de Reclamações</a>
+<a class="hover:text-white transition-colors" href="#">Portal do Consumidor</a>
+</div>
+<div class="text-center text-xs leading-relaxed max-w-2xl opacity-60">
+                © 2024 DS CRÉDITO. Intermediário de Crédito Vinculado registado no Banco de Portugal sob o n.º 0000. Sede: Rua Business Center, Lote 1, 1000-001 Lisboa.
+            </div>
+</div>
+</footer>
+</body></html>

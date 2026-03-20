@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html class="light" lang="pt-PT"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-highest": "#d4e4fa",
+              "primary-fixed-dim": "#ffb0d0",
+              "tertiary": "#415062",
+              "surface-tint": "#af1e70",
+              "primary": "#9a0160",
+              "on-secondary": "#ffffff",
+              "inverse-primary": "#ffb0d0",
+              "error": "#ba1a1a",
+              "tertiary-fixed-dim": "#b9c8de",
+              "surface-container-lowest": "#ffffff",
+              "on-primary-fixed": "#3d0023",
+              "surface-container-high": "#dbe9ff",
+              "secondary": "#63597d",
+              "on-surface-variant": "#564149",
+              "surface-variant": "#d4e4fa",
+              "on-background": "#0d1c2d",
+              "on-secondary-container": "#62587c",
+              "error-container": "#ffdad6",
+              "surface-container-low": "#eef4ff",
+              "on-primary-container": "#ffdde8",
+              "secondary-container": "#ded1fb",
+              "on-surface": "#0d1c2d",
+              "tertiary-container": "#59687b",
+              "surface-container": "#e5efff",
+              "background": "#f8f9ff",
+              "secondary-fixed-dim": "#cdc0ea",
+              "outline": "#8a7079",
+              "on-secondary-fixed": "#1f1636",
+              "on-secondary-fixed-variant": "#4b4164",
+              "inverse-on-surface": "#e9f1ff",
+              "primary-fixed": "#ffd8e5",
+              "on-error": "#ffffff",
+              "on-primary-fixed-variant": "#8c0057",
+              "inverse-surface": "#233143",
+              "on-tertiary-fixed": "#0d1c2d",
+              "surface-bright": "#f8f9ff",
+              "surface": "#f8f9ff",
+              "on-tertiary-container": "#d8e7fe",
+              "on-tertiary": "#ffffff",
+              "surface-dim": "#ccdbf2",
+              "on-tertiary-fixed-variant": "#39485a",
+              "on-error-container": "#93000a",
+              "secondary-fixed": "#e9ddff",
+              "on-primary": "#ffffff",
+              "outline-variant": "#ddbfc9",
+              "tertiary-fixed": "#d4e4fa",
+              "primary-container": "#ba2979"
+            },
+            fontFamily: {
+              "headline": ["Inter", "sans-serif"],
+              "body": ["Inter", "sans-serif"],
+              "label": ["Inter", "sans-serif"]
+            },
+          },
+        },
+      }
+    </script>
+<style type="text/tailwindcss">
+        @layer base {
+            body { font-family: 'Inter', sans-serif; background-color: #f8f9ff; color: #0d1c2d; }
+        }
+        .brutal-border {
+            border: 4px solid #0d1c2d;
+            box-shadow: 12px 12px 0px 0px #0d1c2d;
+        }
+        .brutal-border-primary {
+            border: 4px solid #9a0160;
+            box-shadow: 8px 8px 0px 0px #9a0160;
+        }
+        .duotone-primary {
+            filter: grayscale(100%) contrast(120%) brightness(90%) sepia(50%) hue-rotate(280deg) saturate(300%);
+        }
+        .asymmetric-block-1 { clip-path: polygon(0 0, 100% 5%, 95% 100%, 0% 95%); }
+        .asymmetric-block-2 { clip-path: polygon(5% 0, 100% 0, 95% 95%, 0% 100%); }
+    </style>
+</head>
+<body class="bg-background overflow-x-hidden">
+<header class="fixed top-0 w-full z-[100] border-b-4 border-on-background bg-white">
+<nav class="flex justify-between items-center px-6 md:px-12 py-4">
+<span class="text-xl font-black tracking-tighter text-on-background uppercase">CREDIT INTERMEDIARY SERVICES</span>
+<div class="hidden md:flex gap-8 items-center font-black uppercase text-xs">
+<a class="hover:bg-primary hover:text-white px-2" href="#">Overview</a>
+<a class="hover:bg-primary hover:text-white px-2" href="#">Solutions</a>
+<a class="hover:bg-primary hover:text-white px-2" href="#">Compliance</a>
+<a class="bg-on-background text-white px-4 py-2 hover:translate-x-1 hover:translate-y-1 transition-transform" href="#">Request Consultation</a>
+</div>
+</nav>
+</header>
+<main class="mt-24 px-4 md:px-12 space-y-48 pb-24 max-w-[1600px] mx-auto">
+<section class="relative min-h-[819px] flex flex-col justify-center">
+<div class="z-10 relative">
+<span class="bg-primary text-white font-black px-4 py-1 text-sm uppercase mb-6 inline-block">EXECUTIVE SUMMARY VOL. 01</span>
+<div class="flex flex-col md:flex-row items-start md:items-end gap-0">
+<h1 class="text-7xl md:text-[12rem] font-black tracking-[ -0.05em] leading-[0.85] uppercase break-all md:break-normal">
+                    Crédito <br/>
+<span class="text-white bg-on-background px-4 inline-block -rotate-1 origin-left">Especializado</span>
+</h1>
+<div class="md:ml-[-100px] mt-8 md:mt-0 max-w-sm brutal-border bg-white p-8 relative z-20 rotate-2">
+<p class="text-on-background text-xl font-bold leading-tight uppercase italic">
+                        Desbloqueando o potencial financeiro do seu negócio através de soluções de intermediação estratégica.
+                    </p>
+</div>
+</div>
+</div>
+<div class="absolute right-0 top-0 w-full md:w-3/5 h-[500px] md:h-full -z-0 opacity-80 mt-20 md:mt-0">
+<div class="w-full h-full brutal-border overflow-hidden">
+<img alt="Modern corporate architecture building" class="w-full h-full object-cover duotone-primary scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJOdRAYHkvpL6h-ypKZcnMPvDTKPtfAmi7sGtPpmfRZZSdQ_Fy3Y42iiH_Q9tTR19r8LoAchL5gZiOLrbZIyISBEh5bxITT9uZvjZpnKwk9qY1k81_En5RZQoteabo508baql2Fqsqy8icwhgRRBaPMxCiyqKUALHB5x1KHkY3k5K4t6WVohTQaDlM7g0NQpXU9u-lwc3qy5cSIvE2N5IDTPUwKghSW-rhj3xc34tmxIOp7vnLoYxbioGwm6Xp_TRzNclw5CrDWhqi"/>
+</div>
+<div class="absolute -bottom-10 left-10 md:left-[-100px] bg-primary text-white p-8 brutal-border-primary max-w-xs -rotate-3">
+<p class="text-xs font-black tracking-widest uppercase mb-2 border-b-2 border-white pb-2">Market Outlook 2024</p>
+<p class="text-lg font-bold">Uma análise profunda sobre as novas dinâmicas de capital de giro no mercado europeu.</p>
+</div>
+</div>
+</section>
+<section class="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
+<div class="md:col-span-4 sticky top-32">
+<h2 class="text-6xl md:text-8xl font-black uppercase leading-none tracking-tighter mb-8">
+                Como <br/> Agilizamos <br/> <span class="text-primary">Processos</span>
+</h2>
+<div class="text-[15rem] font-black text-on-background/10 leading-none">02</div>
+</div>
+<div class="md:col-span-8 space-y-12">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="brutal-border bg-white p-10 -rotate-1 hover:rotate-0 transition-transform">
+<div class="w-16 h-16 bg-on-background flex items-center justify-center text-white mb-6">
+<span class="material-symbols-outlined text-4xl" data-icon="analytics">analytics</span>
+</div>
+<h3 class="text-3xl font-black uppercase mb-4 italic">Diagnóstico Digital</h3>
+<p class="text-on-surface-variant font-bold leading-tight">Utilizamos algoritmos proprietários para avaliar a saúde financeira em tempo real, reduzindo o tempo de triagem inicial em 70%.</p>
+</div>
+<div class="brutal-border bg-surface-container-high p-10 rotate-2 hover:rotate-0 transition-transform md:mt-12">
+<div class="w-16 h-16 bg-primary flex items-center justify-center text-white mb-6">
+<span class="material-symbols-outlined text-4xl" data-icon="account_tree">account_tree</span>
+</div>
+<h3 class="text-3xl font-black uppercase mb-4 italic">Estruturação Ágil</h3>
+<p class="text-on-surface-variant font-bold leading-tight">A nossa rede de parceiros institucionais permite uma montagem de dossier técnica e irrepreensível, pronta para aprovação imediata.</p>
+</div>
+<div class="brutal-border bg-white p-10 rotate-1 hover:rotate-0 transition-transform md:col-span-2">
+<div class="flex flex-col md:flex-row gap-8 items-center">
+<div class="flex-1">
+<div class="w-16 h-16 bg-on-background flex items-center justify-center text-white mb-6">
+<span class="material-symbols-outlined text-4xl" data-icon="speed">speed</span>
+</div>
+<h3 class="text-3xl font-black uppercase mb-4 italic">Execução Veloz</h3>
+<p class="text-on-surface-variant font-bold leading-tight">Monitorização proativa de cada etapa junto das entidades bancárias para garantir que o capital chega onde é necessário.</p>
+</div>
+<div class="w-full md:w-1/2 aspect-video brutal-border overflow-hidden rotate-1">
+<img alt="Financial charts and data analytics" class="w-full h-full object-cover grayscale contrast-150" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFh5xulYfUqYgQK5yoQwtiWaRTJJbF1FalQ8CRS3Jq4zceeCNtijLnZ8OglNJ9cc7RA2sQiz4L9_a1MwXPd6k9j-BAM0IqUUeoPkhHP7FipupUCPQk1Fl9W8sr_BSEeRQNooyan1DmaoZWeaoOtXdCSR8WRVDF9jD18e29RPvGxRe9WR5DTqECOTwlIuaney-ziCdKoPI4K1oSDr4-GaC3gDj8J8LIxNTSTITGAdEx1YbF12zNrodBwW2adX34s7XvMrkWmibjLFw8"/>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-primary text-white p-12 border-[6px] border-on-background relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 font-black text-6xl opacity-20 uppercase">METRICS</div>
+<p class="text-4xl md:text-6xl font-black leading-none tracking-tighter uppercase relative z-10">
+                    Redução média de <span class="bg-white text-primary px-4 inline-block -rotate-1">15 dias úteis</span> no ciclo de aprovação.
+                </p>
+</div>
+</div>
+</section>
+<section class="space-y-12">
+<div class="max-w-4xl brutal-border bg-on-background text-white p-12 -rotate-1">
+<h2 class="text-6xl md:text-8xl font-black uppercase tracking-tighter mb-8 leading-none">
+                Vantagens para <br/> o Seu Negócio
+            </h2>
+<p class="text-2xl font-bold italic border-l-8 border-primary pl-8">
+                Não somos apenas intermediários. Somos parceiros estratégicos que alinham a estrutura de capital com a visão de longo prazo da sua empresa.
+            </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0 border-4 border-on-background">
+<div class="p-10 border-b-4 md:border-b-0 md:border-r-4 border-on-background bg-white hover:bg-primary hover:text-white transition-colors group">
+<span class="material-symbols-outlined text-6xl mb-8 block" data-icon="verified_user">verified_user</span>
+<h4 class="text-2xl font-black uppercase mb-4 italic leading-none">Credibilidade Institucional</h4>
+<p class="font-bold text-sm">Acesso privilegiado a linhas de financiamento exclusivas não disponíveis no retalho bancário comum.</p>
+</div>
+<div class="p-10 border-b-4 md:border-b-0 md:border-r-4 border-on-background bg-surface-container hover:bg-on-background hover:text-white transition-colors group">
+<span class="material-symbols-outlined text-6xl mb-8 block" data-icon="payments">payments</span>
+<h4 class="text-2xl font-black uppercase mb-4 italic leading-none">Otimização de Custos</h4>
+<p class="font-bold text-sm">Negociação agressiva de taxas (spreads) e comissões através de volume e expertise técnica.</p>
+</div>
+<div class="p-10 border-b-4 lg:border-b-0 lg:border-r-4 border-on-background bg-white hover:bg-primary hover:text-white transition-colors group">
+<span class="material-symbols-outlined text-6xl mb-8 block" data-icon="security">security</span>
+<h4 class="text-2xl font-black uppercase mb-4 italic leading-none">Segurança e Compliance</h4>
+<p class="font-bold text-sm">Processos totalmente auditados e em conformidade com as normas regulamentares do Banco de Portugal.</p>
+</div>
+<div class="p-10 bg-surface-container hover:bg-on-background hover:text-white transition-colors group">
+<span class="material-symbols-outlined text-6xl mb-8 block" data-icon="trending_up">trending_up</span>
+<h4 class="text-2xl font-black uppercase mb-4 italic leading-none">Escalabilidade</h4>
+<p class="font-bold text-sm">Estruturação de financiamento que acompanha o crescimento orgânico e inorgânico da sua empresa.</p>
+</div>
+</div>
+</section>
+<section class="grid grid-cols-1 md:grid-cols-12 gap-0 md:gap-16 items-center">
+<div class="md:col-span-6 relative order-2 md:order-1 mt-12 md:mt-0">
+<div class="brutal-border overflow-hidden -rotate-2 bg-on-background">
+<img alt="Miguel Brito Professional Portrait" class="w-full h-full object-cover grayscale contrast-125 brightness-110 mix-blend-luminosity opacity-90" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAktwdbr2WgYzBygM22vuxGGirf0_2hypQEf04KTLX24o-0u0-oBNARJ8KNu7TQ_igRiBrGWb9U1E0XE2hlWXh3L1D_Ykaivl7FVHC_oyrABx4Olf2d3A0eI7u_CSnYvB3Xf6KKbpt-fU14PWlEclq1e36gkoTKtelz8Of-K66FYtnPfBZe6LNGcF7J7HB5lbsoJ5n2PrWTU8bON2QJKoQTzDSJiguctPqAsmtjlxFdUrSNFU8Mx_VF089iqhyTsMkEDRM3JJdedFXj"/>
+</div>
+<div class="absolute top-1/2 left-0 -translate-x-1/2 bg-white brutal-border p-6 rotate-6 z-20 hidden md:block">
+<h3 class="text-4xl font-black uppercase italic leading-none">Miguel<br/>Brito</h3>
+</div>
+</div>
+<div class="md:col-span-6 order-1 md:order-2 space-y-12">
+<div class="space-y-4">
+<h2 class="text-7xl md:text-8xl font-black uppercase tracking-tighter leading-none">Perfil <br/> <span class="bg-primary text-white px-2">Miguel Brito</span></h2>
+<p class="text-xl font-black uppercase tracking-widest text-primary italic">Managing Partner &amp; Senior Consultant</p>
+</div>
+<div class="space-y-8 font-bold text-xl leading-tight">
+<p class="border-l-8 border-on-background pl-6 italic">
+                    Com mais de 15 anos de experiência no setor bancário e financeiro, Miguel Brito tem sido a força motriz por trás de algumas das reestruturações de capital mais complexas no tecido empresarial nacional.
+                </p>
+<p>
+                    Especialista em Análise de Risco e Engenharia Financeira, fundou a Credit Intermediary Services com a visão de democratizar o acesso a soluções de crédito sofisticadas.
+                </p>
+<div class="grid grid-cols-2 gap-4">
+<div class="brutal-border-primary bg-white p-6 -rotate-1">
+<p class="text-primary font-black text-5xl mb-1">500M+</p>
+<p class="text-xs font-black uppercase tracking-tighter opacity-60">Capital Intermediado</p>
+</div>
+<div class="brutal-border-primary bg-white p-6 rotate-2">
+<p class="text-primary font-black text-5xl mb-1">200+</p>
+<p class="text-xs font-black uppercase tracking-tighter opacity-60">Empresas Apoiadas</p>
+</div>
+</div>
+<div class="bg-on-background text-white p-8 brutal-border">
+<p class="italic text-2xl">
+                        "A nossa missão é traduzir a complexidade do mundo financeiro numa linguagem de oportunidade para o empresário."
+                    </p>
+</div>
+</div>
+<button class="w-full bg-primary text-white py-8 border-4 border-on-background font-black text-2xl uppercase hover:translate-x-2 hover:translate-y-2 transition-transform flex items-center justify-center gap-4">
+                Agendar reunião
+                <span class="material-symbols-outlined text-4xl" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</section>
+</main>
+<footer class="w-full border-t-[8px] border-on-background bg-white">
+<div class="flex flex-col md:flex-row items-start md:items-center justify-between py-20 px-6 md:px-12 w-full max-w-[1600px] mx-auto gap-12">
+<div class="max-w-md">
+<span class="font-black text-on-background text-4xl uppercase tracking-tighter block mb-6 leading-none">CREDIT INTERMEDIARY SERVICES</span>
+<p class="font-bold text-sm leading-tight text-on-background/60">
+                © 2024 Credit Intermediary Services. All Rights Reserved. Authorized and Regulated by the Financial Conduct Authority. 
+                <br/>Intermediário de Crédito Registado no Banco de Portugal sob o nº 0000.
+            </p>
+</div>
+<div class="flex flex-col gap-4 font-black uppercase text-sm">
+<a class="hover:bg-primary hover:text-white px-2 w-fit" href="#">Privacy Policy</a>
+<a class="hover:bg-primary hover:text-white px-2 w-fit" href="#">Terms of Service</a>
+<a class="hover:bg-primary hover:text-white px-2 w-fit" href="#">Compliance Disclosure</a>
+<a class="hover:bg-primary hover:text-white px-2 w-fit" href="#">Contact Support</a>
+</div>
+</div>
+</footer>
+
+</body></html>
