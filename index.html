@@ -427,7 +427,7 @@
     var url = URL.createObjectURL(file);
     var doc = mainFrame.contentDocument;
     if (doc) {
-      var avatarImg = doc.querySelector('[data-field-type="avatar"]');
+      var avatarImg = doc.querySelector('[data-field="avatar"]');
       if (avatarImg) {
         avatarImg.src = url;
         avatarImg.style.display = 'block';
