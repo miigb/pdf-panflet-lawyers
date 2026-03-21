@@ -471,9 +471,9 @@
   <!-- Hero -->
   <div class="hero">
     <div class="hero-left">
-      <div class="hero-badge">Documento de Briefing 2026</div>
-      <h1>Crédito Especializado para os Clientes do <span class="accent">Seu Escritório</span>.</h1>
-      <div class="desc">
+      <div class="hero-badge" data-section="hero" data-field="kicker" data-label="Kicker">Documento de Briefing 2026</div>
+      <h1 data-section="hero" data-field="title" data-label="Title">Crédito Especializado para os Clientes do <span class="accent">Seu Escritório</span>.</h1>
+      <div class="desc" data-section="hero" data-field="description" data-label="Description">
         Parceiro financeiro de confiança que complementa os seus serviços, garantindo agilidade e conformidade total em cada processo de financiamento.
       </div>
       <div class="hero-author">
@@ -486,7 +486,7 @@
     </div>
     <div class="hero-right">
       <div class="hero-image-container">
-        <img src="public/penthouse.png" alt="Propriedade de luxo"/>
+        <img src="public/penthouse.png" alt="Propriedade de luxo" data-section="hero" data-field="image" data-label="Hero Image" data-field-type="image"/>
       </div>
     </div>
   </div>
@@ -494,24 +494,24 @@
   <!-- Process -->
   <div class="process">
     <div class="section-header">
-      <div class="section-title">Como a Letraperfeiçoada Agiliza os Seus Processos</div>
+      <div class="section-title" data-section="process" data-field="section-title" data-label="Section Title">Como a Letraperfeiçoada Agiliza os Seus Processos</div>
       <div class="section-line"></div>
     </div>
     <div class="process-cards">
       <div class="process-card">
         <span class="step-icon">🤝</span>
-        <h3>Referenciação Simples</h3>
-        <p>Basta encaminhar o contacto do cliente. Iniciamos o processo de imediato com total discrição e profissionalismo.</p>
+        <h3 data-section="process" data-field="step1-title" data-label="Step 1 Title">Referenciação Simples</h3>
+        <p data-section="process" data-field="step1-desc" data-label="Step 1 Desc">Basta encaminhar o contacto do cliente. Iniciamos o processo de imediato com total discrição e profissionalismo.</p>
       </div>
       <div class="process-card">
         <span class="step-icon">⏱</span>
-        <h3>Viabilidade em 24h</h3>
-        <p>Análise de viabilidade financeira em 24 horas, permitindo que o processo legal avance sem incertezas.</p>
+        <h3 data-section="process" data-field="step2-title" data-label="Step 2 Title">Viabilidade em 24h</h3>
+        <p data-section="process" data-field="step2-desc" data-label="Step 2 Desc">Análise de viabilidade financeira em 24 horas, permitindo que o processo legal avance sem incertezas.</p>
       </div>
       <div class="process-card">
         <span class="step-icon">🏦</span>
-        <h3>Múltiplas Propostas</h3>
-        <p>Apresentação de propostas de múltiplos bancos ao cliente, garantindo as melhores condições do mercado.</p>
+        <h3 data-section="process" data-field="step3-title" data-label="Step 3 Title">Múltiplas Propostas</h3>
+        <p data-section="process" data-field="step3-desc" data-label="Step 3 Desc">Apresentação de propostas de múltiplos bancos ao cliente, garantindo as melhores condições do mercado.</p>
       </div>
     </div>
   </div>
@@ -519,13 +519,13 @@
   <!-- Stats -->
   <div class="stats-bar">
     <div class="stat">
-      <div class="value">92%</div>
-      <div class="label">Taxa de Aprovação</div>
+      <div class="value" data-section="stats" data-field="stat1-val" data-label="Stat 1 Value">92%</div>
+      <div class="label" data-section="stats" data-field="stat1-lbl" data-label="Stat 1 Label">Taxa de Aprovação</div>
     </div>
     <div class="stat-divider"></div>
     <div class="stat">
-      <div class="value">5 dias</div>
-      <div class="label">Tempo Médio de Aprovação</div>
+      <div class="value" data-section="stats" data-field="stat2-val" data-label="Stat 2 Value">5 dias</div>
+      <div class="label" data-section="stats" data-field="stat2-lbl" data-label="Stat 2 Label">Tempo Médio de Aprovação</div>
     </div>
   </div>
 
@@ -535,32 +535,32 @@
       <div class="distingue-item">
         <span class="distingue-icon">✦</span>
         <div>
-          <h4>Conformidade Total</h4>
-          <p>Registo no Banco de Portugal — total conformidade regulatória em todos os atos.</p>
+          <h4 data-section="features" data-field="feature1-title" data-label="Feature 1 Title">Conformidade Total</h4>
+          <p data-section="features" data-field="feature1-desc" data-label="Feature 1 Desc">Registo no Banco de Portugal — total conformidade regulatória em todos os atos.</p>
         </div>
       </div>
       <div class="distingue-item">
         <span class="distingue-icon">§</span>
         <div>
-          <h4>Experiência Jurídica</h4>
-          <p>Equipa que entende a linguagem dos advogados e os tempos dos processos legais.</p>
+          <h4 data-section="features" data-field="feature2-title" data-label="Feature 2 Title">Experiência Jurídica</h4>
+          <p data-section="features" data-field="feature2-desc" data-label="Feature 2 Desc">Equipa que entende a linguagem dos advogados e os tempos dos processos legais.</p>
         </div>
       </div>
       <div class="distingue-item">
         <span class="distingue-icon">🔒</span>
         <div>
-          <h4>Confidencialidade</h4>
-          <p>Comunicação adaptada à relação advogado-cliente com sigilo absoluto.</p>
+          <h4 data-section="features" data-field="feature3-title" data-label="Feature 3 Title">Confidencialidade</h4>
+          <p data-section="features" data-field="feature3-desc" data-label="Feature 3 Desc">Comunicação adaptada à relação advogado-cliente com sigilo absoluto.</p>
         </div>
       </div>
     </div>
     <div class="quote-block">
       <div class="quote-title">O Que Nos <span class="accent">Distingue</span>.</div>
       <div class="quote-card">
-        <blockquote>
+        <blockquote data-section="quote" data-field="text" data-label="Quote Text">
           A parceria com a Letraperfeiçoada acelerou significativamente os nossos processos imobiliários. As escrituras não atrasam.
         </blockquote>
-        <cite>— Escritório Parceiro</cite>
+        <cite data-section="quote" data-field="cite" data-label="Quote Attribution">— Escritório Parceiro</cite>
       </div>
     </div>
   </div>
@@ -568,8 +568,8 @@
   <!-- CTA -->
   <div class="cta-section">
     <div class="cta-left">
-      <h2>Pronto para agilizar os seus processos?</h2>
-      <p>Apoio direto a escritórios de advogados em estratégias de crédito. O meu objetivo é simplificar o processo e poupar-lhe tempo.</p>
+      <h2 data-section="agent" data-field="cta-title" data-label="CTA Title">Pronto para agilizar os seus processos?</h2>
+      <p data-section="agent" data-field="cta-desc" data-label="CTA Description">Apoio direto a escritórios de advogados em estratégias de crédito. O meu objetivo é simplificar o processo e poupar-lhe tempo.</p>
       <div class="cta-contact-item">
         <span class="dot"></span>
         <span>infosuporteds@gmail.com</span>
@@ -581,9 +581,9 @@
     </div>
     <div class="cta-right">
       <div class="cta-role-label">Agente de Intermediação de Crédito</div>
-      <div class="cta-name">Paulo Brito</div>
-      <div class="cta-spec">Especialista: Advogados</div>
-      <button class="cta-button">Agendar Briefing</button>
+      <div class="cta-name" data-section="agent" data-field="name" data-label="Name">Paulo Brito</div>
+      <div class="cta-spec" data-section="agent" data-field="role" data-label="Role">Especialista: Advogados</div>
+      <button class="cta-button" data-section="agent" data-field="cta" data-label="CTA Button">Agendar Briefing</button>
     </div>
   </div>
 
