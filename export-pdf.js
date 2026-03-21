@@ -25,11 +25,51 @@ async function exportPDF(htmlFile, outputFile) {
   const browser = await puppeteer.launch({ headless: 'new' });
   const page = await browser.newPage();
 
+  // Set viewport to A4 width at 96dpi (210mm ≈ 794px)
+  await page.setViewport({ width: 794, height: 1123, deviceScaleFactor: 2 });
+
   await page.goto('file://' + absolutePath, { waitUntil: 'networkidle0' });
 
   // Wait for fonts and images to load
   await page.evaluate(() => document.fonts.ready);
   await new Promise(r => setTimeout(r, 500));
+
+  // Auto-scale each .page element if content overflows A4 height
+  await page.evaluate(() => {
+    const A4_HEIGHT_MM = 297;
+    const A4_WIDTH_MM = 210;
+    // Remove screen-only styles first
+    document.body.style.background = 'white';
+    document.body.style.padding = '0';
+
+    const pages = document.querySelectorAll('.page');
+    pages.forEach(pg => {
+      pg.style.boxShadow = 'none';
+      pg.style.margin = '0';
+      // Temporarily remove height constraint to measure natural height
+      pg.style.minHeight = 'auto';
+      pg.style.height = 'auto';
+      pg.style.overflow = 'visible';
+
+      // Force layout recalc
+      void pg.offsetHeight;
+
+      const rect = pg.getBoundingClientRect();
+      const contentHeightMM = (rect.height / 96) * 25.4; // px to mm
+
+      if (contentHeightMM > A4_HEIGHT_MM) {
+        const scale = (A4_HEIGHT_MM / contentHeightMM) * 0.98; // 2% safety margin
+        pg.style.transform = 'scale(' + scale + ')';
+        pg.style.transformOrigin = 'top left';
+        pg.style.width = (A4_WIDTH_MM / scale) + 'mm';
+        pg.style.height = A4_HEIGHT_MM + 'mm';
+        pg.style.overflow = 'hidden';
+      } else {
+        pg.style.height = A4_HEIGHT_MM + 'mm';
+        pg.style.overflow = 'hidden';
+      }
+    });
+  });
 
   const output = outputFile || htmlFile.replace('.html', '.pdf');
 
