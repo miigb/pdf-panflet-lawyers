@@ -424,20 +424,24 @@
   function handleAvatarUpload(fileInput) {
     var file = fileInput.files[0];
     if (!file) return;
-    var url = URL.createObjectURL(file);
-    var doc = mainFrame.contentDocument;
-    if (doc) {
-      var avatarImg = doc.querySelector('[data-field="avatar"]');
-      if (avatarImg) {
-        avatarImg.src = url;
-        avatarImg.style.display = 'block';
+    // Use FileReader to get a data URL that works across iframe boundaries
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      var dataUrl = e.target.result;
+      var doc = mainFrame.contentDocument;
+      if (doc) {
+        var avatarImg = doc.querySelector('[data-field="avatar"]');
+        if (avatarImg) {
+          avatarImg.src = dataUrl;
+        }
       }
-    }
-    var wrap = document.getElementById('avatar-upload');
-    if (wrap) {
-      wrap.classList.add('has-image');
-      document.getElementById('avatar-preview').src = url;
-    }
+      var wrap = document.getElementById('avatar-upload');
+      if (wrap) {
+        wrap.classList.add('has-image');
+        document.getElementById('avatar-preview').src = dataUrl;
+      }
+    };
+    reader.readAsDataURL(file);
   }
 
   function downloadPDF() {
