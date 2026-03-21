@@ -2,9 +2,9 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "Static HTML Server",
-      "runtimeExecutable": "npx",
-      "runtimeArgs": ["serve"],
+      "name": "Editor Server",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["server.js"],
       "port": 3000,
       "autoPort": true
     }

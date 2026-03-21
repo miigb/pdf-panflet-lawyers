@@ -442,24 +442,48 @@
   function downloadPDF() {
     var doc = mainFrame.contentDocument;
     if (!doc) return;
-    var printWin = window.open('', '_blank');
-    // Clone the HTML and inject print CSS — each .page = exactly one A4 page
+    var btn = document.querySelector('.btn-download');
+    var origText = btn.textContent;
+    btn.textContent = 'Generating...';
+    btn.disabled = true;
+
+    // Get the full HTML with resolved image URLs
     var html = doc.documentElement.outerHTML;
-    var fitCSS = '<style id="print-fit">' +
-      '@page { size: A4; margin: 0; }' +
-      '@media print {' +
-        'html, body { width: 210mm; margin: 0; padding: 0; }' +
-        '.page { width: 210mm !important; height: 297mm !important; min-height: 0 !important; max-height: 297mm !important; overflow: hidden !important; page-break-after: always !important; page-break-inside: avoid !important; box-shadow: none !important; }' +
-        '.page:last-child { page-break-after: auto !important; }' +
-      '}' +
-      '</style>';
-    // Insert the fit CSS before </head>
-    html = html.replace('</head>', fitCSS + '</head>');
-    printWin.document.write(html);
-    printWin.document.close();
-    printWin.onload = function() {
-      setTimeout(function() { printWin.print(); }, 500);
-    };
+    // Resolve relative image paths to absolute URLs
+    var base = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/');
+    html = html.replace(/(src=["'])((?!http|data:)[^"']+)(["'])/g, function(m, p1, p2, p3) {
+      return p1 + base + p2 + p3;
+    });
+
+    fetch('/api/export-pdf', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ html: html })
+    })
+    .then(function(res) {
+      if (!res.ok) throw new Error('Export failed');
+      return res.blob();
+    })
+    .then(function(blob) {
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = versions[currentVersion].name + '-' + versions[currentVersion].tag + '.pdf';
+      a.click();
+      URL.revokeObjectURL(url);
+    })
+    .catch(function(err) {
+      alert('PDF export failed: ' + err.message + '\nFallback: using print dialog.');
+      // Fallback to print
+      var printWin = window.open('', '_blank');
+      printWin.document.write(doc.documentElement.outerHTML);
+      printWin.document.close();
+      printWin.onload = function() { setTimeout(function() { printWin.print(); }, 500); };
+    })
+    .finally(function() {
+      btn.textContent = origText;
+      btn.disabled = false;
+    });
   }
 
   selectTemplate(0);
