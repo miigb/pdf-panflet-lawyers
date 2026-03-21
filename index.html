@@ -218,7 +218,8 @@
   <div class="sidebar-right">
     <div class="sidebar-right-header">
       <h2>Edit Fields</h2>
-      <button class="btn-download" onclick="downloadPDF()">Download PDF</button>
+      <button class="btn-download" onclick="downloadPDF()" title="Browser print — crisp vector text">Print PDF</button>
+      <button class="btn-download" style="background:#555;margin-left:4px;" onclick="downloadPDFCanvas()" title="html2pdf.js — one-click, rasterized">Export PDF</button>
     </div>
     <div class="fields-container" id="fields-container">
       <div class="fields-loading">
@@ -229,6 +230,7 @@
   </div>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.2/html2pdf.bundle.min.js"></script>
 <script>
   const versions = [
     { file: 'pamphlet-v1-editorial.html', name: 'V1', tag: 'Editorial' },
@@ -460,6 +462,39 @@
     printWin.onload = function() {
       setTimeout(function() { printWin.print(); }, 500);
     };
+  }
+
+  function downloadPDFCanvas() {
+    var doc = mainFrame.contentDocument;
+    if (!doc) return;
+    var pages = doc.querySelectorAll('.page');
+    if (pages.length === 0) return;
+
+    var opt = {
+      margin: 0,
+      filename: versions[currentVersion].name + '-' + versions[currentVersion].tag + '.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 3, useCORS: true, logging: false },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+      pagebreak: { mode: ['css', 'legacy'] }
+    };
+
+    // For single-page pamphlets, export the .page directly
+    // For multi-page, clone all pages into a wrapper
+    if (pages.length === 1) {
+      html2pdf().set(opt).from(pages[0]).save();
+    } else {
+      var wrapper = doc.createElement('div');
+      pages.forEach(function(p) {
+        var clone = p.cloneNode(true);
+        clone.style.pageBreakAfter = 'always';
+        wrapper.appendChild(clone);
+      });
+      doc.body.appendChild(wrapper);
+      html2pdf().set(opt).from(wrapper).save().then(function() {
+        doc.body.removeChild(wrapper);
+      });
+    }
   }
 
   selectTemplate(0);
